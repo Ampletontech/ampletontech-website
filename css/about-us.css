@@ -1,0 +1,759 @@
+/* About Us Hero Section */
+.about-hero-section {
+    position: relative;
+    width: calc(100% - 40px);
+    margin: 20px auto 0;
+    border-radius: 24px;
+    overflow: hidden;
+    min-height: calc(100vh - 40px);
+    /* Removed flex styles to allow absolute positioning of wrapper from styles.css */
+}
+
+.about-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.about-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+    /* Subtle overlay for text readability */
+}
+
+/* Page-specific overrides for hero content are removed in favor of global .hero- classes */
+
+/* Who We Are Detailed Section */
+.who-we-are-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--spacing-3xl);
+    align-items: flex-start;
+}
+
+.who-we-are-sidebar {
+    position: sticky;
+    top: 120px;
+}
+
+.who-we-are-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+}
+
+.who-we-are-heading {
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #ababab;
+    /* Gray color for standard text */
+    /* max-width: 90%; */
+}
+
+.who-we-are-heading .text-strong {
+    color: #111827;
+    /* Dark black for emphasized text */
+    font-weight: 700;
+}
+
+.who-we-are-subtext {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #6B7280;
+    max-width: 80%;
+}
+
+.stats-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    /* border-top: 1px solid #E5E7EB; */
+    max-width: 90%;
+}
+
+.stat-block {
+    text-align: left;
+}
+
+.stat-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-key {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Vision / Windmills Section */
+.vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--spacing-3xl);
+    align-items: center;
+}
+
+.vision-image-wrapper {
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    height: 400px;
+}
+
+.vision-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vision-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.vision-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #374151;
+}
+
+/* Timeline Section */
+.timeline-section {
+    position: relative;
+    padding-left: 0;
+}
+
+.timeline-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: var(--spacing-4xl);
+}
+
+.timeline-sidebar {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+}
+
+.timeline-main-title {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    font-weight: 400;
+    margin-top: var(--spacing-xl);
+    color: #111827;
+}
+
+.timeline-content {
+    position: relative;
+    border-left: 2px solid #111827;
+    /* Vertical Line */
+    padding-left: 0;
+    /* Align directly to the line */
+    margin-left: 20px;
+    /* Offset for line */
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    /* Space between line and text */
+    margin-bottom: 60px;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -6px;
+    /* Center on the 2px line: -1px (half line) -5px (half dot)? No, dot is 10px. Line is at 0. left should be - (10-2)/2 = -4px if dot is 10px */
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #111827;
+    /* Black dot */
+    outline: 4px solid #fff;
+    /* White spacing around dot */
+}
+
+.timeline-marker.last {
+    bottom: 0;
+    top: auto;
+}
+
+.timeline-year {
+    position: absolute;
+    left: -100px;
+    /* Adjust based on width */
+    top: 0;
+    width: 80px;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* Alternate approach for Timeline based on Figma Image 5:
+   Ideally, the year is next to the title.
+   Let's keep year on the left of content, right of line? No, image showing year on left of title?
+   Wait, image 5 shows "2018 The Beginning".
+   So the format is: Line -> [Space] -> Year [Space] Title -> Breakdown.
+   Let's adjust.
+*/
+
+.timeline-content {
+    border-left: 4px solid #111827;
+    /* Thicker line as per image */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.timeline-marker {
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background: #111827;
+    border: 2px solid #ffffff;
+    outline: 2px solid #111827;
+    /* Or just use border */
+    /* Let's keep it simple: Filled black dot on top of black line needs white border to separate?
+       The line is black. The dot is black.
+       If dot is on line, it blends in.
+       We want dot to be visible.
+       Option A: White dot with black border (Empty circle). This is what I had.
+       Option B: Black dot with white border. This creates a "gap" effect.
+       Let's go with Option B as per my visual analysis. */
+    outline: none;
+    border: 2px solid #ffffff;
+    background-color: #111827;
+    z-index: 2;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #111827;
+    /* Thin black ring outside white border to define it against white background if it spills over, but it's on line. */
+}
+
+.timeline-year {
+    position: static;
+    display: inline-block;
+    width: auto;
+    text-align: left;
+    margin-right: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    vertical-align: top;
+}
+
+.timeline-details {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 600px;
+}
+
+.timeline-title {
+    display: inline-block;
+    /* To sit next to year */
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #111827;
+}
+
+.timeline-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #6B7280;
+    margin-left: 0;
+    /* Or align with title */
+    display: block;
+    /* Force new line */
+    margin-top: 4px;
+}
+
+.timeline-item {
+    display: flex;
+    /* Flexbox for Year + Content layout */
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.timeline-year {
+    flex-shrink: 0;
+    width: 60px;
+    /* Fixed width for year alignment */
+}
+
+.timeline-details {
+    flex: 1;
+}
+
+/* Leadership Section */
+.leadership-header {
+    margin-bottom: 60px;
+}
+
+.leadership-header-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.leadership-title-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    /* Fixes pill tag bunching */
+}
+
+.leadership-desc-col {
+    padding-top: var(--spacing-3xl);
+    /* Align with title */
+}
+
+.leadership-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #6B7280;
+    margin-bottom: 0;
+}
+
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.leadership-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 450px;
+}
+
+.leader-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.leadership-card:hover .leader-img {
+    transform: scale(1.05);
+}
+
+.leader-info-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: #fff;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.leader-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.leader-role {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+}
+
+/* Carousel Controls - Matching Index Page */
+.leadership-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    justify-content: flex-start;
+    margin-top: 40px;
+}
+
+.nav-arrow-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid #E5E7EB;
+    background: #ffffff;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.nav-arrow-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-arrow-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: #374151;
+}
+
+.nav-arrow-btn.active,
+.nav-arrow-btn:active {
+    /* Adding active state for click or manually set matching index */
+    background: #f4edf8;
+    border: 1px solid #B886DB;
+}
+
+.nav-arrow-btn.active svg,
+.nav-arrow-btn:active svg {
+    stroke: var(--primary-color);
+}
+
+.nav-arrow-btn.active:hover {
+    background: #f8e3f8;
+    border-color: var(--primary-color);
+}
+
+/* Footer Dark Theme Override - Boxed Layout */
+.footer-dark {
+    background-color: #323232;
+    color: #F9FAFB;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    margin: 0 auto 20px;
+    /* Add margin bottom and center */
+    width: calc(100% - 40px);
+    /* Match hero section spacing usually (20px each side) */
+    max-width: 1400px;
+    border-radius: 24px;
+    /* Rounded corners like hero */
+}
+
+/* Adjust container inside to not doublen-pad if needed, or just let it be.
+   The footer has a .container. Let's make sure it fits well. */
+.footer-dark .container {
+    padding: 0 40px;
+    /* Internal padding for content */
+}
+
+.footer-dark .footer-company-name {
+    color: #F9FAFB;
+    max-width: 400px;
+    /* Force line break matches: "Comprehensive Solar & [break] Energy Solutions" */
+    line-height: 1.4;
+}
+
+.footer-dark .footer-tagline {
+    color: #9CA3AF;
+    margin-top: 20px;
+}
+
+.footer-dark .footer-link {
+    color: #D1D5DB;
+}
+
+.footer-dark .footer-link:hover,
+.footer-dark .footer-link.active {
+    color: #ffffff;
+}
+
+.footer-dark .footer-address {
+    text-align: right;
+}
+
+.footer-dark .footer-address p {
+    color: #9CA3AF;
+    margin-left: auto;
+    max-width: 400px;
+    /* Force line wrapping for address */
+    line-height: 1.6;
+}
+
+.footer-dark .footer-copyright p {
+    color: #6B7280;
+}
+
+.footer-dark .footer-legal-link {
+    color: #9CA3AF;
+}
+
+.footer-dark .footer-legal-link:hover {
+    color: #ffffff;
+}
+
+.footer-dark .footer-social .social-icon {
+    color: #9CA3AF;
+}
+
+.footer-dark .footer-social .social-icon:hover {
+    color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+    .who-we-are-layout,
+    .vision-grid,
+    .timeline-layout {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
+
+    .who-we-are-sidebar,
+    .timeline-sidebar {
+        position: static;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .timeline-content {
+        margin-left: 0;
+    }
+
+    .leadership-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero-section {
+        padding: 100px 20px 40px 20px;
+        align-items: flex-end;
+    }
+
+    .about-hero-content {
+        width: 100%;
+    }
+
+    .about-hero-title {
+        font-size: 2rem;
+    }
+
+    .stats-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-lg);
+    }
+
+    /* Responsive adjustments for boxed footer */
+    .footer-dark {
+        width: calc(100% - 32px);
+        padding: 40px 20px;
+        margin: 16px auto;
+    }
+
+    .footer-dark .container {
+        padding: 0;
+        /* Remove extra padding on mobile since box has padding */
+    }
+
+    .footer-dark .footer-address p,
+    .footer-dark .footer-company-name {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .footer-dark .footer-address {
+        text-align: left;
+    }
+}
+
+/* Header Styles (Copied AND MATCHED from styles.css) */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 2.5%;
+    left: 0;
+    z-index: 1000;
+    padding: 20px 20px 0 20px;
+    pointer-events: none;
+    background: transparent;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    pointer-events: all;
+}
+
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px 12px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: auto;
+    width: auto;
+    max-height: 50px;
+    display: block;
+    object-fit: contain;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    flex: 1;
+    justify-content: center;
+    background: transparent;
+    /* Ensure no white bg */
+    border-radius: 0;
+}
+
+.nav-link {
+    color: #374151;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    position: relative;
+    padding: 8px 0;
+    border-radius: 0;
+    background: transparent;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.25s ease;
+}
+
+.nav-link:hover {
+    color: #111827;
+    background: transparent;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: #111827;
+    font-weight: 600;
+    background: transparent;
+}
+
+/* Header CTA Button - Corrected from styles.css */
+.header-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--primary-color);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(118, 40, 163, 0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.header-cta:hover {
+    background: var(--primary-dark);
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(118, 40, 163, 0.3);
+    transform: translateY(-1px);
+}
+
+.header-cta span {
+    font-size: 14px;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    width: auto;
+    height: auto;
+}
+
+.mobile-menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background-color: #374151;
+    transition: all var(--transition-base);
+    border-radius: 2px;
+}
+
+@media (max-width: 1024px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+
+    .header-bar {
+        padding: 10px 16px;
+    }
+}

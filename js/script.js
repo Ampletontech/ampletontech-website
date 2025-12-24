@@ -36,30 +36,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Active Navigation Link on Scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinksArray = document.querySelectorAll('.nav-link');
+    // Active Navigation Link on Scroll - REMOVED per user request to keep static page-based active stats
+    // const sections = document.querySelectorAll('section[id]');
+    // const navLinksArray = document.querySelectorAll('.nav-link');
     
-    function updateActiveNavLink() {
-        const scrollPosition = window.scrollY + 150;
+    // function updateActiveNavLink() {
+    //     const scrollPosition = window.scrollY + 150;
         
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
+    //     sections.forEach(section => {
+    //         const sectionTop = section.offsetTop;
+    //         const sectionHeight = section.offsetHeight;
+    //         const sectionId = section.getAttribute('id');
             
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                navLinksArray.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }
+    //         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+    //             navLinksArray.forEach(link => {
+    //                 link.classList.remove('active');
+    //                 if (link.getAttribute('href') === `#${sectionId}`) {
+    //                     link.classList.add('active');
+    //                 }
+    //             });
+    //         }
+    //     });
+    // }
     
-    window.addEventListener('scroll', updateActiveNavLink);
+    // window.addEventListener('scroll', updateActiveNavLink);
 
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
@@ -211,22 +211,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Header Scroll Effect - Keep header transparent, only adjust header-bar if needed
-    const headerBar = document.querySelector('.header-bar');
-    let lastScroll = 0;
+    // // Header Scroll Effect - Keep header transparent, only adjust header-bar if needed
+    // const headerBar = document.querySelector('.header-bar');
+    // let lastScroll = 0;
     
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
+    // window.addEventListener('scroll', function() {
+    //     const currentScroll = window.pageYOffset;
         
-        // Keep header transparent, only adjust header-bar opacity slightly on scroll if needed
-        if (currentScroll > 100) {
-            headerBar.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 244, 246, 0.95) 100%)';
-        } else {
-            headerBar.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(243, 244, 246, 0.85) 100%)';
-        }
+    //     // Keep header transparent, only adjust header-bar opacity slightly on scroll if needed
+    //     if (currentScroll > 100) {
+    //         headerBar.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 244, 246, 0.95) 100%)';
+    //     } else {
+    //         headerBar.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(243, 244, 246, 0.85) 100%)';
+    //     }
         
-        lastScroll = currentScroll;
-    });
+    //     lastScroll = currentScroll;
+    // });
 
     // Animate on Scroll
     const observerOptions = {
