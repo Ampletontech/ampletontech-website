@@ -1,0 +1,348 @@
+/* ============================================
+   Contact Us Page Styles
+   ============================================ */
+
+/* Contact Form Section */
+.contact-form-section {
+    background-color: #ffffff;
+    padding: var(--spacing-5xl) 0;
+}
+
+.contact-content {
+    display: flex;
+    gap: var(--spacing-4xl);
+    align-items: center;
+}
+
+.contact-left {
+    flex: 1;
+    padding-right: var(--spacing-2xl);
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-right {
+    flex: 1;
+}
+
+.contact-title {
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+.contact-description {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-2xl);
+    line-height: 1.6;
+}
+
+/* Contact Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-color);
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9CA3AF;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(118, 40, 163, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #1a3a32;
+    color: #ffffff;
+    padding: 16px 32px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: var(--spacing-md);
+}
+
+.submit-btn:hover {
+    background: #0d5c4b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 92, 75, 0.3);
+}
+
+.submit-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: #ffffff;
+}
+
+/* Select Dropdown */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.select-wrapper select {
+    width: 100%;
+    padding: 14px 40px 14px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--text-color);
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+}
+
+.select-wrapper select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(118, 40, 163, 0.1);
+}
+
+.select-wrapper select option[disabled] {
+    color: #9CA3AF;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    stroke: #6B7280;
+    pointer-events: none;
+}
+
+/* Contact Right - Image */
+.contact-image {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-xl);
+    object-fit: cover;
+    display: block;
+}
+
+/* ============================================
+   Our Locations Section
+   ============================================ */
+
+.locations-section {
+    background-color: #ffffff;
+    padding: var(--spacing-5xl) 0;
+    border-top: 1px solid #E5E7EB;
+}
+
+.locations-title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-3xl);
+    letter-spacing: -0.02em;
+}
+
+/* State Group */
+.state-group {
+    margin-bottom: var(--spacing-3xl);
+}
+
+.state-group:last-child {
+    margin-bottom: 0;
+}
+
+.state-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+}
+
+/* Location Card */
+.location-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--spacing-xl) var(--spacing-xl);
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    margin-bottom: var(--spacing-md);
+    transition: all 0.3s ease;
+}
+
+.location-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.location-card:last-child {
+    margin-bottom: 0;
+}
+
+.location-info {
+    flex: 1;
+    padding-right: var(--spacing-2xl);
+}
+
+.location-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.location-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.location-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    font-size: 0.875rem;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+.location-detail svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--text-light);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.location-detail span {
+    flex: 1;
+}
+
+/* Call Now Button */
+.call-now-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-color);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.call-now-btn:hover {
+    color: var(--primary-color);
+}
+
+.call-now-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media screen and (max-width: 1024px) {
+    .contact-content {
+        flex-direction: column;
+        gap: var(--spacing-3xl);
+    }
+
+    .contact-left {
+        padding-right: 0;
+    }
+
+    .contact-right {
+        min-height: 400px;
+    }
+
+    .contact-image {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact-title {
+        font-size: 2rem;
+    }
+
+    .locations-title {
+        font-size: 2rem;
+    }
+
+    .location-card {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .location-info {
+        padding-right: 0;
+    }
+
+    .call-now-btn {
+        align-self: flex-start;
+    }
+
+    .submit-btn {
+        width: 100%;
+        max-width: 100%;
+        justify-content: center;
+    }
+}
+
