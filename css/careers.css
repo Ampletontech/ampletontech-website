@@ -40,18 +40,41 @@
 
 .team-avatars-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    max-width: 500px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    /* gap: 16px; */
+    max-width: 600px;
 }
 
-/* Position avatars: 3 on top row, 2 on bottom row offset */
+/* Position avatars in specific grid cells */
+/* Avatar 1: Row 1, Column 1 */
+.team-avatar-wrapper:nth-child(1) {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+/* Avatar 2: Row 1, Column 2 */
+.team-avatar-wrapper:nth-child(2) {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+/* Avatar 3: Row 2, Column 2 */
+.team-avatar-wrapper:nth-child(3) {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+/* Avatar 4: Row 2, Column 3 */
 .team-avatar-wrapper:nth-child(4) {
-    grid-column: 1 / 2;
+    grid-row: 2;
+    grid-column: 3;
 }
 
+/* Avatar 5: Row 1, Column 4 */
 .team-avatar-wrapper:nth-child(5) {
-    grid-column: 2 / 3;
+    grid-row: 1;
+    grid-column: 4;
 }
 
 .team-avatar-wrapper {
@@ -259,14 +282,19 @@
         grid-template-columns: repeat(2, 1fr);
     }
     
+    .team-avatars-grid {
+        max-width: 500px;
+        /* gap: 12px; */
+    }
+    
     .team-avatar-wrapper {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
     }
     
     .team-avatar-wrapper .avatar-img {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
     }
 }
 
@@ -285,17 +313,18 @@
     }
     
     .team-avatars-grid {
-        max-width: 100%;
+        max-width: 400px;
+        /* gap: 10px; */
     }
     
     .team-avatar-wrapper {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
     
     .team-avatar-wrapper .avatar-img {
-        width: 80px;
-        height: 80px;
+        width: 65px;
+        height: 65px;
     }
     
     .join-team-title {

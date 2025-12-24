@@ -19,7 +19,7 @@
                     <a href="../index.html" class="nav-link">Home</a>
                     <a href="../about-us.html" class="nav-link">About Us</a>
                     <div class="nav-item dropdown">
-                        <a href="../index.html#services" class="nav-link dropdown-toggle active">Services</a>
+                        <span class="nav-link dropdown-toggle active">Services</span>
                         <div class="dropdown-menu">
                             <a href="mep-services.html" class="dropdown-item">MEP Services</a>
                             <a href="solar-epc.html" class="dropdown-item">Solar EPC</a>
@@ -45,22 +45,31 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-bg"></div>
-        <div class="hero-content-wrapper">
-            <div class="hero-content">
-                <div class="section-tag-pill">
-                    <span class="tag-dot"></span>
-                    <span class="tag-text">SERVICES</span>
-                </div>
-                <h1 class="hero-title">MEP Services</h1>
-                <div class="hero-image">
-                    <img src="../assets/images/mep-hero.jpg" alt="MEP Services" class="hero-img">
+    <!-- Hero Section Wrapper - 100vh Container -->
+    <div class="service-hero-wrapper">
+        <!-- Hero Section - 80vh -->
+        <section class="hero-section mep-hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content-wrapper">
+                <div class="hero-content">
+                    <div class="section-tag-pill hero-pill">
+                        <span class="tag-text">Solar Power</span>
+                    </div>
+                    <h1 class="hero-title">MEP Services</h1>
+                    <div class="hero-meta">
+                        <span class="meta-item">9 min read</span>
+                        <span class="meta-separator">•</span>
+                        <span class="meta-item">December 11, 2025</span>
+                    </div>
                 </div>
             </div>
+        </section>
+        
+        <!-- Hanging Image - Positioned with top property -->
+        <div class="hero-hanging-image">
+            <img src="../assets/images/mep_banner.jpg" alt="MEP Services" class="hanging-img">
         </div>
-    </section>
+    </div>
 
     <!-- Main Content Section -->
     <main class="main-content">
@@ -85,7 +94,7 @@
 
                 <!-- Image Section -->
                 <div class="content-image-wrapper">
-                    <img src="../assets/images/mep-engineer.jpg" alt="MEP Engineer" class="content-image">
+                    <img src="../assets/images/mep_2.jpg" alt="MEP Engineer" class="content-image">
                 </div>
 
                 <!-- Newsletter CTA -->
@@ -107,43 +116,49 @@
                     <span class="tag-text">OUR SERVICES</span>
                 </div>
                 
-                <div class="services-grid-3">
-                    <!-- Service Card 1 -->
-                    <div class="service-card-white">
-                        <div class="service-icon-wrapper">
-                            <svg class="service-icon-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="2" width="20" height="20" rx="2"/>
-                                <path d="M8 12h8M12 8v8"/>
-                            </svg>
+                <!-- Horizontal Separator Line -->
+                <div class="services-separator"></div>
+                
+                <!-- Grey Background Container -->
+                <div class="services-container-grey">
+                    <div class="services-grid-3">
+                        <!-- Service Card 1 -->
+                        <div class="service-card-white">
+                            <div class="service-icon-wrapper">
+                                <svg class="service-icon-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="2" width="20" height="20" rx="2"/>
+                                    <path d="M8 12h8M12 8v8"/>
+                                </svg>
+                            </div>
+                            <h3 class="service-card-title">Solar EPC Services</h3>
+                            <p class="service-card-description">We design, engineer, procure, and install high-performance solar power systems for residential, commercial, and industrial clients. Our expert team ensures maximum energy generation, long-term reliability, and reduced operating costs.</p>
+                            <a href="solar-epc.html" class="service-card-link">Read More</a>
                         </div>
-                        <h3 class="service-card-title">Solar EPC Services</h3>
-                        <p class="service-card-description">We design, engineer, procure, and install high-performance solar power systems for residential, commercial, and industrial clients. Our expert team ensures maximum energy generation, long-term reliability, and reduced operating costs.</p>
-                        <a href="solar-epc.html" class="service-card-link">Read More</a>
-                    </div>
 
-                    <!-- Service Card 2 -->
-                    <div class="service-card-white">
-                        <div class="service-icon-wrapper">
-                            <svg class="service-icon-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
-                            </svg>
+                        <!-- Service Card 2 -->
+                        <div class="service-card-white">
+                            <div class="service-icon-wrapper">
+                                <svg class="service-icon-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+                                </svg>
+                            </div>
+                            <h3 class="service-card-title">Electrical Consultancy</h3>
+                            <p class="service-card-description">Our consultancy services help businesses plan and optimize power systems with precision. We ensure compliance, safety, and reliability by delivering well-engineered electrical layouts tailored to your requirements.</p>
+                            <a href="electrical-consultants.html" class="service-card-link">Read More</a>
                         </div>
-                        <h3 class="service-card-title">Electrical Consultancy</h3>
-                        <p class="service-card-description">Our consultancy services help businesses plan and optimize power systems with precision. We ensure compliance, safety, and reliability by delivering well-engineered electrical layouts tailored to your requirements.</p>
-                        <a href="electrical-consultants.html" class="service-card-link">Read More</a>
-                    </div>
 
-                    <!-- Service Card 3 -->
-                    <div class="service-card-white">
-                        <div class="service-icon-wrapper">
-                            <svg class="service-icon-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/>
-                            </svg>
+                        <!-- Service Card 3 -->
+                        <div class="service-card-white">
+                            <div class="service-icon-wrapper">
+                                <svg class="service-icon-purple" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/>
+                                </svg>
+                            </div>
+                            <h3 class="service-card-title">Electrical Contracting</h3>
+                            <p class="service-card-description">We provide full-scale electrical installation and contracting services, ensuring every project meets industry standards and regulatory compliance. Our certified engineers and technicians handle installations with unmatched quality.</p>
+                            <a href="electrical-contractors.html" class="service-card-link">Read More</a>
                         </div>
-                        <h3 class="service-card-title">Electrical Contracting</h3>
-                        <p class="service-card-description">We provide full-scale electrical installation and contracting services, ensuring every project meets industry standards and regulatory compliance. Our certified engineers and technicians handle installations with unmatched quality.</p>
-                        <a href="electrical-contractors.html" class="service-card-link">Read More</a>
                     </div>
                 </div>
             </div>
@@ -181,7 +196,7 @@
                     <nav class="footer-nav">
                         <a href="../index.html" class="footer-link">Home</a>
                         <a href="../about-us.html" class="footer-link">About Us</a>
-                        <a href="../index.html#services" class="footer-link">Services</a>
+                        <a href="../" class="footer-link">Services</a>
                         <a href="../projects.html" class="footer-link">Projects</a>
                         <a href="../blogs.html" class="footer-link">Blogs</a>
                         <a href="../career.html" class="footer-link">Careers</a>
