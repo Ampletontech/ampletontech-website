@@ -1,5 +1,19 @@
 /* Careers Page Specific Styles */
 
+.hero-content-wrapper  {
+    position: absolute;
+    top: 0;
+    left: 0 !important;
+    z-index: 3;
+    width: 50%;
+    height: 100%;
+    padding: 200px 80px 60px 60px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
 /* Join Our Team Section */
 .join-team-section {
     background-color: #ffffff;
@@ -97,7 +111,7 @@
 }
 
 .team-avatar-wrapper.bg-green {
-    background-color: #0d5c4b;
+    background-color: #022C22;
 }
 
 .team-avatar-wrapper .avatar-img {

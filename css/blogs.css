@@ -232,7 +232,7 @@
 }
 
 .blog-card-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: var(--text-dark);
     line-height: 1.3;
@@ -241,7 +241,7 @@
 }
 
 .blog-card-description {
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
     color: var(--text-light);
     margin-bottom: 20px;

@@ -3,6 +3,9 @@
    Pixel-Perfect Figma Design Replication
    ============================================ */
 
+/* Google Fonts - Figtree */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /* CSS Variables - Based on Figma design */
 :root {
     /* Colors - Purple accent theme from Figma */
@@ -22,7 +25,7 @@
     --purple-light: #B886DB;
 
     /* Typography */
-    --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family-primary: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-size-base: 16px;
     --font-size-h1: 3.5rem;
     --font-size-h2: 2.5rem;
@@ -324,7 +327,7 @@ img {
 }
 
 .hero-content {
-    max-width: 480px;
+    /* max-width: 480px; */
     text-align: left;
     color: #ffffff;
 }
@@ -340,6 +343,7 @@ img {
 
 .hero-description {
     font-size: 0.875rem;
+    max-width: 450px;
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 24px;
     line-height: 1.7;
