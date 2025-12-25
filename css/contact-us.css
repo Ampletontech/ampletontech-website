@@ -217,7 +217,6 @@
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--text-light);
-    text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-sm);
@@ -268,7 +267,7 @@
     align-items: flex-start;
     gap: var(--spacing-sm);
     font-size: 0.875rem;
-    color: var(--text-light);
+    color: var(--text-dark);
     line-height: 1.5;
 }
 
