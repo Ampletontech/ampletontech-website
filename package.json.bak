@@ -1,0 +1,10 @@
+{
+  "name": "ampletontech-website",
+  "version": "1.0.0",
+  "description": "Backup of package.json - static site doesn't need this if user prefers",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "start": "python -m http.server 8000",
+    "build": "echo 'No build step required for static site'"
+  }
+}
