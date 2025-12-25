@@ -1,6 +1,17 @@
 node_modules
+.github
+.vscode
 .git
-.env
+README.md
 *.log
+*.psd
 .DS_Store
+
+# Hide local dev files
+.env
+.env.local
+
+# Ignore system files
+Thumbs.db
+desktop.ini
 

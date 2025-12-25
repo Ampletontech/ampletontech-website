@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Portfolio Carousel
     const portfolioCards = document.querySelector('.portfolio-cards');
-    const portfolioPrevBtn = document.querySelector('.portfolio-carousel .carousel-btn-prev');
-    const portfolioNextBtn = document.querySelector('.portfolio-carousel .carousel-btn-next');
+    const portfolioPrevBtn = document.querySelector('.portfolio-carousel .portfolio-carousel-prev') || document.querySelector('.portfolio-carousel .carousel-btn-prev');
+    const portfolioNextBtn = document.querySelector('.portfolio-carousel .portfolio-carousel-next') || document.querySelector('.portfolio-carousel .carousel-btn-next');
     
     if (portfolioCards && portfolioPrevBtn && portfolioNextBtn) {
         let portfolioScrollPosition = 0;
@@ -123,8 +123,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Blogs Carousel
     const blogsCards = document.querySelector('.blogs-cards');
-    const blogsPrevBtn = document.querySelector('.blogs-carousel .carousel-btn-prev');
-    const blogsNextBtn = document.querySelector('.blogs-carousel .carousel-btn-next');
+    const blogsPrevBtn = document.querySelector('.blogs-carousel .blogs-carousel-prev') || document.querySelector('.blogs-carousel .carousel-btn-prev');
+    const blogsNextBtn = document.querySelector('.blogs-carousel .blogs-carousel-next') || document.querySelector('.blogs-carousel .carousel-btn-next');
     
     if (blogsCards && blogsPrevBtn && blogsNextBtn) {
         let blogsScrollPosition = 0;
@@ -158,8 +158,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Testimonials Carousel
     const testimonialsCards = document.querySelector('.testimonials-cards');
-    const testimonialsPrevBtn = document.querySelector('.testimonials-carousel .carousel-btn-prev');
-    const testimonialsNextBtn = document.querySelector('.testimonials-carousel .carousel-btn-next');
+    const testimonialsPrevBtn = document.querySelector('.testimonials-carousel .testimonials-carousel-prev') || document.querySelector('.testimonials-carousel .carousel-btn-prev');
+    const testimonialsNextBtn = document.querySelector('.testimonials-carousel .testimonials-carousel-next') || document.querySelector('.testimonials-carousel .carousel-btn-next');
     
     if (testimonialsCards && testimonialsPrevBtn && testimonialsNextBtn) {
         let testimonialsScrollPosition = 0;
