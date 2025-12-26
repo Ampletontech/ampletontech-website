@@ -16,12 +16,14 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    overflow: hidden;
 }
 
 .about-hero-img {
     width: 100%;
-    height: 100%;
+    height: 120%; /* Extra height to cover parallax movement */
     object-fit: cover;
+    object-position: center;
 }
 
 .overlay-gradient {
@@ -195,6 +197,10 @@
    VERTICAL LINE
 ================================ */
 
+.timeline-content {
+    --timeline-line-progress: 0;
+}
+
 .timeline-content::before {
     content: "";
     position: absolute;
@@ -204,6 +210,10 @@
     height: 100%;
     background: #111827;
     border-radius: 10px;
+    transform: scaleY(var(--timeline-line-progress));
+    transform-origin: top;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 
 /* ===============================
