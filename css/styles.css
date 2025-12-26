@@ -541,6 +541,73 @@ img {
     max-width: 80%;
 }
 
+/* ============================================
+   TEXT REVEAL ON SCROLL ANIMATION (SMOOTH)
+   ============================================ */
+.scroll-reveal span {
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    background-position: left center;
+    animation: scroll-reveal-smooth ease-out forwards;
+    animation-timeline: view();
+    animation-range: cover 15vh cover 60vh;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Set the actual text color in the background gradient */
+.scroll-reveal .who-we-are-intro span {
+    background-image: linear-gradient(90deg, #ababab, #ababab);
+    animation-range: cover 15vh cover 50vh;
+}
+
+/* Handle strong tag inside intro - needs to maintain dark color */
+.scroll-reveal .who-we-are-intro span strong {
+    background-image: linear-gradient(90deg, #111827, #111827);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.scroll-reveal .who-we-are-description span {
+    background-image: linear-gradient(90deg, #6B7280, #6B7280);
+    animation-range: cover 20vh cover 60vh;
+}
+
+@keyframes scroll-reveal-smooth {
+    0% {
+        background-size: 0% 100%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
+}
+
+/* Fallback for browsers that don't support scroll-driven animations */
+@supports not (animation-timeline: view()) {
+    .scroll-reveal span {
+        color: inherit;
+        -webkit-text-fill-color: inherit;
+        background: none;
+        animation: none;
+    }
+    
+    .scroll-reveal .who-we-are-intro span {
+        color: #ababab;
+    }
+    
+    .scroll-reveal .who-we-are-intro span strong {
+        color: #111827;
+    }
+    
+    .scroll-reveal .who-we-are-description span {
+        color: #6B7280;
+    }
+}
+
 .who-we-are-stats {
     display: flex;
     align-items: center;
@@ -1890,9 +1957,9 @@ img {
     /* Offset from bottom of nav item */
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     min-width: 220px;
     padding: 8px;
     border-radius: 12px;
@@ -1914,7 +1981,7 @@ img {
 .dropdown-item {
     display: block;
     padding: 10px 16px;
-    color: #374151;
+    color: #111827;
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
@@ -1926,4 +1993,125 @@ img {
     background-color: rgba(118, 40, 163, 0.05);
     /* Primary color tint */
     color: var(--primary-color);
+}
+
+/* ============================================
+   PREMIUM ANIMATIONS & PARALLAX EFFECTS
+   ============================================ */
+
+/* Parallax Background - GPU Accelerated */
+.hero-bg-img {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.1s ease-out;
+}
+
+/* Enhanced Fade-In Animations */
+.fade-in {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.text-revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Header Scroll Effect - Maintains exact same glass effect as original */
+.header-bar.scrolled {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Premium Card Hover Effects - Enhanced (All Pages) */
+.service-card,
+.portfolio-card,
+.blog-card,
+.service-card-white,
+.leadership-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* Only apply enhanced hover after fade-in animation completes */
+.service-card.fade-in:hover,
+.portfolio-card.fade-in:hover,
+.blog-card.fade-in:hover,
+.service-card-white.fade-in:hover,
+.leadership-card.fade-in:hover {
+    transform: translateY(-12px) scale(1.02) !important;
+    box-shadow: 0 25px 50px rgba(107, 70, 193, 0.2);
+}
+
+/* Fallback for cards that don't have fade-in class */
+.service-card:hover,
+.portfolio-card:hover,
+.blog-card:hover,
+.service-card-white:hover,
+.leadership-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(107, 70, 193, 0.15);
+}
+
+/* Smooth Image Zoom on Hover (All Pages) */
+.portfolio-card img,
+.blog-card img,
+.leadership-card img,
+.content-image {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover img,
+.blog-card:hover img,
+.leadership-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Performance Optimizations */
+.service-card,
+.portfolio-card,
+.blog-card,
+.hero-bg-img {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+/* Mobile Optimizations - Disable Heavy Effects */
+@media (max-width: 768px) {
+    /* Disable parallax on mobile for better performance */
+    .hero-bg-img {
+        transform: none !important;
+        will-change: auto;
+    }
+    
+    /* Simplify hover effects on mobile */
+    .service-card:hover,
+    .portfolio-card:hover,
+    .blog-card:hover {
+        transform: translateY(-4px) !important;
+    }
+    
+    /* Reduce animation delays on mobile */
+    .service-card,
+    .portfolio-card,
+    .blog-card {
+        transition-delay: 0s !important;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg-img,
+    .service-card,
+    .portfolio-card,
+    .blog-card,
+    .fade-in,
+    .text-revealed {
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
 }

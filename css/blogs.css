@@ -182,6 +182,7 @@
     box-shadow: none !important;
     border: none !important;
     outline: none !important;
+    will-change: opacity, transform;
 }
 
 .blog-card:hover .blog-card-image img {
