@@ -698,6 +698,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
+    // SCROLL PROGRESS BAR
+    // ============================================
+    function initScrollProgress() {
+        // Create scroll progress bar element
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress';
+        document.body.appendChild(progressBar);
+
+        function updateScrollProgress() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollableHeight = documentHeight - windowHeight;
+            const scrollProgress = (scrollTop / scrollableHeight) * 100;
+            
+            progressBar.style.width = Math.min(scrollProgress, 100) + '%';
+        }
+
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    updateScrollProgress();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Initial calculation
+        updateScrollProgress();
+    }
+
+    // ============================================
     // INITIALIZE ALL ANIMATIONS
     // ============================================
     initParallax();
@@ -708,6 +742,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initTimelineLineAnimation();
     initTwoColumnGridAnimations();
     initVisionSectionAnimation();
+    initScrollProgress();
     // Card hover effects handled by CSS for better performance
 });
 
