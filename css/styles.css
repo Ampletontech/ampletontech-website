@@ -552,7 +552,7 @@ img {
     background-position: left center;
     animation: scroll-reveal-smooth ease-out forwards;
     animation-timeline: view();
-    animation-range: cover 15vh cover 60vh;
+    animation-range: cover 25vh cover 65vh;
     color: transparent;
     -webkit-text-fill-color: transparent;
 }
@@ -560,7 +560,7 @@ img {
 /* Set the actual text color in the background gradient */
 .scroll-reveal .who-we-are-intro span {
     background-image: linear-gradient(90deg, #ababab, #ababab);
-    animation-range: cover 15vh cover 50vh;
+    animation-range: cover 25vh cover 55vh;
 }
 
 /* Handle strong tag inside intro - needs to maintain dark color */
@@ -574,7 +574,7 @@ img {
 
 .scroll-reveal .who-we-are-description span {
     background-image: linear-gradient(90deg, #6B7280, #6B7280);
-    animation-range: cover 20vh cover 60vh;
+    animation-range: cover 25vh cover 65vh;
 }
 
 @keyframes scroll-reveal-smooth {
@@ -2102,6 +2102,84 @@ img {
     }
 }
 
+/* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 0 10px rgba(118, 40, 163, 0.5);
+}
+
+/* ============================================
+   ENHANCED BUTTON HOVER EFFECTS
+   ============================================ */
+.header-cta,
+.btn-portfolio,
+.newsletter-btn,
+.newsletter-cta-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.header-cta::before,
+.btn-portfolio::before,
+.newsletter-btn::before,
+.newsletter-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    pointer-events: none;
+}
+
+.header-cta:hover::before,
+.btn-portfolio:hover::before,
+.newsletter-btn:hover::before,
+.newsletter-cta-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.header-cta span,
+.btn-portfolio span,
+.newsletter-btn span,
+.newsletter-cta-btn span {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.header-cta:hover span,
+.btn-portfolio:hover span,
+.newsletter-btn:hover span,
+.newsletter-cta-btn:hover span {
+    transform: translate(2px, -2px);
+}
+
+/* Enhanced hover states - enhances existing without overriding background colors */
+.header-cta:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(118, 40, 163, 0.4);
+}
+
+.btn-portfolio:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(118, 40, 163, 0.4);
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
     .hero-bg-img,
@@ -2113,5 +2191,16 @@ img {
         transform: none !important;
         transition: none !important;
         animation: none !important;
+    }
+    
+    .scroll-progress {
+        display: none;
+    }
+    
+    .header-cta::before,
+    .btn-portfolio::before,
+    .newsletter-btn::before,
+    .newsletter-cta-btn::before {
+        display: none;
     }
 }
