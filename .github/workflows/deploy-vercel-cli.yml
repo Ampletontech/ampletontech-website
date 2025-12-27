@@ -1,0 +1,44 @@
+name: Deploy to Vercel (CLI)
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  deploy:
+    name: Deploy to Vercel
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Deploy to Vercel
+        run: |
+          npx vercel --prod \
+            --token=${{ secrets.VERCEL_TOKEN }} \
+            --scope=${{ secrets.VERCEL_ORG_ID }} \
+            -m githubCommitSha=${{ github.sha }} \
+            -m githubCommitAuthorName=${{ github.actor }} \
+            -m githubCommitAuthorLogin=${{ github.actor }} \
+            -m githubDeployment=1 \
+            -m githubOrg=${{ github.repository_owner }} \
+            -m githubRepo=${{ github.event.repository.name }} \
+            -m githubCommitOrg=${{ github.repository_owner }} \
+            -m githubCommitRepo=${{ github.event.repository.name }} \
+            -m githubCommitMessage="${{ github.event.head_commit.message }}" \
+            -m githubCommitRef=${{ github.ref_name }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+

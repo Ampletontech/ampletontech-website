@@ -4,14 +4,15 @@ This repository is configured to automatically deploy to Vercel when code is pus
 
 ## Workflow Options
 
-Two workflow files are provided:
+Three workflow files are provided:
 
-1. **`deploy-vercel.yml`** - Uses Vercel CLI directly (more control, explicit steps)
-2. **`deploy-vercel-simple.yml`** - Uses `amondnet/vercel-action` (simpler, recommended)
+1. **`deploy-vercel-cli.yml`** - Uses Vercel CLI directly with proper environment variables (recommended, matches your setup)
+2. **`deploy-vercel-simple.yml`** - Uses `amondnet/vercel-action` (simpler alternative)
+3. **`deploy-vercel.yml`** - Full Vercel CLI workflow with build steps
 
-**Recommendation**: Use `deploy-vercel-simple.yml` for easier setup. If you need more control, use `deploy-vercel.yml`.
+**Recommendation**: Use `deploy-vercel-cli.yml` as it properly sets environment variables (`VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`) and uses the `--scope` parameter correctly, matching the Vercel CLI command structure.
 
-To use one workflow, you can delete or disable the other in the `.github/workflows/` directory.
+To use one workflow, you can delete or disable the others in the `.github/workflows/` directory.
 
 ## Setup Instructions
 
