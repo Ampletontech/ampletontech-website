@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - dev
+      - main
+      - master
   workflow_dispatch: # Allows manual triggering
 
 jobs:
@@ -23,7 +25,39 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
-      - name: Deploy to Vercel
+      - name: Determine deployment type
+        id: deployment
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]] || [[ "${{ github.ref }}" == "refs/heads/master" ]]; then
+            echo "type=production" >> $GITHUB_OUTPUT
+            echo "Deploying to PRODUCTION"
+          else
+            echo "type=preview" >> $GITHUB_OUTPUT
+            echo "Deploying to PREVIEW"
+          fi
+
+      - name: Deploy to Vercel (Preview for dev branch)
+        if: steps.deployment.outputs.type == 'preview'
+        run: |
+          npx vercel \
+            --token=${{ secrets.VERCEL_TOKEN }} \
+            --scope=${{ secrets.VERCEL_ORG_ID }} \
+            -m githubCommitSha=${{ github.sha }} \
+            -m githubCommitAuthorName=${{ github.actor }} \
+            -m githubCommitAuthorLogin=${{ github.actor }} \
+            -m githubDeployment=1 \
+            -m githubOrg=${{ github.repository_owner }} \
+            -m githubRepo=${{ github.event.repository.name }} \
+            -m githubCommitOrg=${{ github.repository_owner }} \
+            -m githubCommitRepo=${{ github.event.repository.name }} \
+            -m githubCommitMessage="${{ github.event.head_commit.message }}" \
+            -m githubCommitRef=${{ github.ref_name }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Deploy to Vercel (Production for main/master branch)
+        if: steps.deployment.outputs.type == 'production'
         run: |
           npx vercel --prod \
             --token=${{ secrets.VERCEL_TOKEN }} \
