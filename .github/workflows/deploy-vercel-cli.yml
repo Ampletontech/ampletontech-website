@@ -1,11 +1,11 @@
-name: Deploy to Vercel (CLI)
+name: Deploy to Vercel 
 
 on:
   push:
     branches:
       - dev
       - main
-      - master
+      
   workflow_dispatch: # Allows manual triggering
 
 jobs:
@@ -75,4 +75,5 @@ jobs:
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
 
