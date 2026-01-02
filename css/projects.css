@@ -39,7 +39,7 @@
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 24px;
     /* Spacing between cards */
 }
 
@@ -54,7 +54,7 @@
     width: 100%;
     border-radius: 12px;
     overflow: hidden;
-    height: 350px;
+    height: 250px;
     /* Fixed height for consistency */
 }
 
@@ -88,179 +88,39 @@
     max-width: 90%;
 }
 
-/* Header Styles Reuse (Ensuring consistency) */
-/* Copied from index/about-us to ensure local override if needed */
-.header {
-    width: 100%;
-    position: fixed;
-    top: 2.5%;
-    left: 0;
-    z-index: 1000;
-    padding: 20px 20px 0 20px;
-    pointer-events: none;
-    background: transparent;
-}
-
-.header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    pointer-events: all;
-}
-
-.header-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 24px 8px 20px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    text-decoration: none;
-}
-
-.logo-img {
-    height: auto;
-    width: auto;
-    max-height: 50px;
-    display: block;
-    object-fit: contain;
-}
-
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    margin: 0 auto;
-    padding: 0;
-    list-style: none;
-    flex: 1;
-    justify-content: center;
-    background: transparent;
-    border-radius: 0;
-}
-
-.nav-link {
-    color: #111827;
-    font-weight: 500;
-    font-size: 15px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-    position: relative;
-    padding: 8px 0;
-    border-radius: 0;
-    background: transparent;
-}
-
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-color);
-    transition: width 0.25s ease;
-}
-
-.nav-link:hover {
-    color: #111827;
-    background: transparent;
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
-}
-
-.nav-link.active {
-    color: #111827;
-    font-weight: 600;
-    background: transparent;
-}
-
-.header-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--primary-color);
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    box-shadow: 0 2px 4px rgba(118, 40, 163, 0.2);
-    border: none;
-    cursor: pointer;
-}
-
-.header-cta:hover {
-    background: var(--primary-dark);
-    color: #ffffff;
-    box-shadow: 0 2px 6px rgba(118, 40, 163, 0.3);
-    transform: translateY(-1px);
-}
-
-.header-cta span {
-    font-size: 14px;
-}
-
-.mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    width: auto;
-    height: auto;
-}
-
-.mobile-menu-toggle span {
-    width: 24px;
-    height: 2px;
-    background-color: #374151;
-    transition: all var(--transition-base);
-    border-radius: 2px;
-}
-
 @media (max-width: 1024px) {
-    .nav-menu {
-        display: none;
-    }
-
-    .mobile-menu-toggle {
-        display: flex;
-    }
-
-    .header-bar {
-        padding: 6px 16px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
     .projects-hero-section {
         padding: 100px 20px 40px 20px;
         align-items: flex-end;
+    }
+}
+
+/* Maintain 2 columns on mobile but with reduced sizes */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .project-image-wrapper {
+        height: 200px;
+    }
+}
+
+/* Single column for very small screens */
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-image-wrapper {
+        height: 250px;
+    }
+    
+    .project-title {
+        font-size: 1.25rem;
+    }
+    
+    .project-description {
+        font-size: 0.85rem;
     }
 }
