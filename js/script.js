@@ -4,14 +4,48 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
+    // Mobile Menu Toggle with Shutter Animation
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
-    if (mobileMenuToggle) {
+    if (mobileMenuToggle && navMenu) {
         mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            mobileMenuToggle.classList.toggle('active');
+            const isActive = navMenu.classList.contains('active');
+            
+            if (isActive) {
+                // Close menu with shutter animation
+                navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            } else {
+                // Open menu with shutter animation
+                navMenu.classList.add('active');
+                mobileMenuToggle.classList.add('active');
+            }
+        });
+        
+        // Handle dropdown toggle in mobile menu
+        const dropdownItems = navMenu.querySelectorAll('.nav-item.dropdown');
+        dropdownItems.forEach(dropdown => {
+            const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+            if (dropdownToggle) {
+                dropdownToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                });
+            }
+        });
+        
+        // Close menu when clicking on a regular nav link (not dropdown toggle)
+        const mobileNavLinks = navMenu.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+                // Close all dropdowns
+                dropdownItems.forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            });
         });
     }
 
