@@ -1168,10 +1168,24 @@ img {
 }
 
 .blogs-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    overflow-x: auto;
     gap: var(--spacing-xl);
-    overflow: visible;
+    padding-bottom: 20px;
+    /* Space for scrollbar or shadow */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    /* Enable scroll snapping */
+    /* Hide scrollbar for cleaner look */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.blogs-cards::-webkit-scrollbar {
+    display: none;
 }
 
 
@@ -1182,6 +1196,29 @@ img {
     overflow: hidden;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    /* Flex settings for carousel */
+    flex: 0 0 calc((100% - 2 * var(--spacing-xl)) / 3);
+    /* 3 cards visible */
+    min-width: 300px;
+    /* Ensure cards don't get too small */
+    scroll-snap-align: start;
+    /* Snap to start of card */
+}
+
+/* Responsive adjustments for carousel card sizing */
+@media (max-width: 1024px) {
+    .blog-card {
+        flex: 0 0 calc((100% - var(--spacing-xl)) / 2);
+        /* 2 cards visible */
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-card {
+        flex: 0 0 100%;
+        /* 1 card visible */
+    }
 }
 
 .blog-card:hover {

@@ -161,32 +161,28 @@ document.addEventListener('DOMContentLoaded', function () {
     const blogsNextBtn = document.querySelector('.blogs-carousel .blogs-carousel-next') || document.querySelector('.blogs-carousel .carousel-btn-next');
 
     if (blogsCards && blogsPrevBtn && blogsNextBtn) {
-        let blogsScrollPosition = 0;
-        const blogCardWidth = blogsCards.querySelector('.blog-card').offsetWidth;
-        const blogGap = 32;
-        const blogScrollAmount = blogCardWidth + blogGap;
-
         blogsNextBtn.addEventListener('click', function () {
-            blogsScrollPosition += blogScrollAmount;
-            const maxScroll = blogsCards.scrollWidth - blogsCards.offsetWidth;
-            if (blogsScrollPosition > maxScroll) {
-                blogsScrollPosition = maxScroll;
+            const card = blogsCards.querySelector('.blog-card');
+            if (card) {
+                // Calculate scroll amount dynamically (card width + gap)
+                // Using 32px as approximation for var(--spacing-xl) which is 2rem
+                const scrollAmount = card.offsetWidth + 32;
+                blogsCards.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
             }
-            blogsCards.scrollTo({
-                left: blogsScrollPosition,
-                behavior: 'smooth'
-            });
         });
 
         blogsPrevBtn.addEventListener('click', function () {
-            blogsScrollPosition -= blogScrollAmount;
-            if (blogsScrollPosition < 0) {
-                blogsScrollPosition = 0;
+            const card = blogsCards.querySelector('.blog-card');
+            if (card) {
+                const scrollAmount = card.offsetWidth + 32;
+                blogsCards.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
             }
-            blogsCards.scrollTo({
-                left: blogsScrollPosition,
-                behavior: 'smooth'
-            });
         });
     }
 
