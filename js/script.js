@@ -3,15 +3,15 @@
 // Interactive Features
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Mobile Menu Toggle with Shutter Animation
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function () {
             const isActive = navMenu.classList.contains('active');
-            
+
             if (isActive) {
                 // Close menu with shutter animation
                 navMenu.classList.remove('active');
@@ -22,23 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenuToggle.classList.add('active');
             }
         });
-        
+
         // Handle dropdown toggle in mobile menu
         const dropdownItems = navMenu.querySelectorAll('.nav-item.dropdown');
         dropdownItems.forEach(dropdown => {
             const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
             if (dropdownToggle) {
-                dropdownToggle.addEventListener('click', function(e) {
+                dropdownToggle.addEventListener('click', function (e) {
                     e.preventDefault();
                     dropdown.classList.toggle('active');
                 });
             }
         });
-        
+
         // Close menu when clicking on a regular nav link (not dropdown toggle)
         const mobileNavLinks = navMenu.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-item');
         mobileNavLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 navMenu.classList.remove('active');
                 mobileMenuToggle.classList.remove('active');
                 // Close all dropdowns
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Smooth Scrolling for Navigation Links
     const navLinks = document.querySelectorAll('.nav-link, .footer-link');
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             if (href.startsWith('#')) {
                 e.preventDefault();
@@ -73,15 +73,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Active Navigation Link on Scroll - REMOVED per user request to keep static page-based active stats
     // const sections = document.querySelectorAll('section[id]');
     // const navLinksArray = document.querySelectorAll('.nav-link');
-    
+
     // function updateActiveNavLink() {
     //     const scrollPosition = window.scrollY + 150;
-        
+
     //     sections.forEach(section => {
     //         const sectionTop = section.offsetTop;
     //         const sectionHeight = section.offsetHeight;
     //         const sectionId = section.getAttribute('id');
-            
+
     //         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
     //             navLinksArray.forEach(link => {
     //                 link.classList.remove('active');
@@ -92,26 +92,26 @@ document.addEventListener('DOMContentLoaded', function() {
     //         }
     //     });
     // }
-    
+
     // window.addEventListener('scroll', updateActiveNavLink);
 
     // FAQ Accordion
     const faqItems = document.querySelectorAll('.faq-item');
-    
+
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
         const icon = question.querySelector('.faq-icon');
-        
-        question.addEventListener('click', function() {
+
+        question.addEventListener('click', function () {
             const isActive = item.classList.contains('active');
-            
+
             // Close all FAQ items
             faqItems.forEach(faqItem => {
                 faqItem.classList.remove('active');
                 const faqIcon = faqItem.querySelector('.faq-icon');
                 faqIcon.textContent = '+';
             });
-            
+
             // Open clicked item if it wasn't active
             if (!isActive) {
                 item.classList.add('active');
@@ -124,14 +124,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const portfolioCards = document.querySelector('.portfolio-cards');
     const portfolioPrevBtn = document.querySelector('.portfolio-carousel .portfolio-carousel-prev') || document.querySelector('.portfolio-carousel .carousel-btn-prev');
     const portfolioNextBtn = document.querySelector('.portfolio-carousel .portfolio-carousel-next') || document.querySelector('.portfolio-carousel .carousel-btn-next');
-    
+
     if (portfolioCards && portfolioPrevBtn && portfolioNextBtn) {
         let portfolioScrollPosition = 0;
         const portfolioCardWidth = portfolioCards.querySelector('.portfolio-card').offsetWidth;
         const portfolioGap = 32; // gap between cards
         const portfolioScrollAmount = portfolioCardWidth + portfolioGap;
-        
-        portfolioNextBtn.addEventListener('click', function() {
+
+        portfolioNextBtn.addEventListener('click', function () {
             portfolioScrollPosition += portfolioScrollAmount;
             const maxScroll = portfolioCards.scrollWidth - portfolioCards.offsetWidth;
             if (portfolioScrollPosition > maxScroll) {
@@ -142,8 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         });
-        
-        portfolioPrevBtn.addEventListener('click', function() {
+
+        portfolioPrevBtn.addEventListener('click', function () {
             portfolioScrollPosition -= portfolioScrollAmount;
             if (portfolioScrollPosition < 0) {
                 portfolioScrollPosition = 0;
@@ -159,14 +159,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const blogsCards = document.querySelector('.blogs-cards');
     const blogsPrevBtn = document.querySelector('.blogs-carousel .blogs-carousel-prev') || document.querySelector('.blogs-carousel .carousel-btn-prev');
     const blogsNextBtn = document.querySelector('.blogs-carousel .blogs-carousel-next') || document.querySelector('.blogs-carousel .carousel-btn-next');
-    
+
     if (blogsCards && blogsPrevBtn && blogsNextBtn) {
         let blogsScrollPosition = 0;
         const blogCardWidth = blogsCards.querySelector('.blog-card').offsetWidth;
         const blogGap = 32;
         const blogScrollAmount = blogCardWidth + blogGap;
-        
-        blogsNextBtn.addEventListener('click', function() {
+
+        blogsNextBtn.addEventListener('click', function () {
             blogsScrollPosition += blogScrollAmount;
             const maxScroll = blogsCards.scrollWidth - blogsCards.offsetWidth;
             if (blogsScrollPosition > maxScroll) {
@@ -177,8 +177,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         });
-        
-        blogsPrevBtn.addEventListener('click', function() {
+
+        blogsPrevBtn.addEventListener('click', function () {
             blogsScrollPosition -= blogScrollAmount;
             if (blogsScrollPosition < 0) {
                 blogsScrollPosition = 0;
@@ -194,14 +194,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const testimonialsCards = document.querySelector('.testimonials-cards');
     const testimonialsPrevBtn = document.querySelector('.testimonials-carousel .testimonials-carousel-prev') || document.querySelector('.testimonials-carousel .carousel-btn-prev');
     const testimonialsNextBtn = document.querySelector('.testimonials-carousel .testimonials-carousel-next') || document.querySelector('.testimonials-carousel .carousel-btn-next');
-    
+
     if (testimonialsCards && testimonialsPrevBtn && testimonialsNextBtn) {
         let testimonialsScrollPosition = 0;
         const testimonialCardWidth = testimonialsCards.querySelector('.testimonial-card').offsetWidth;
         const testimonialGap = 32;
         const testimonialScrollAmount = testimonialCardWidth + testimonialGap;
-        
-        testimonialsNextBtn.addEventListener('click', function() {
+
+        testimonialsNextBtn.addEventListener('click', function () {
             testimonialsScrollPosition += testimonialScrollAmount;
             const maxScroll = testimonialsCards.scrollWidth - testimonialsCards.offsetWidth;
             if (testimonialsScrollPosition > maxScroll) {
@@ -212,8 +212,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 behavior: 'smooth'
             });
         });
-        
-        testimonialsPrevBtn.addEventListener('click', function() {
+
+        testimonialsPrevBtn.addEventListener('click', function () {
             testimonialsScrollPosition -= testimonialScrollAmount;
             if (testimonialsScrollPosition < 0) {
                 testimonialsScrollPosition = 0;
@@ -229,12 +229,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const newsletterForm = document.querySelector('.newsletter-form');
     const newsletterInput = document.querySelector('.newsletter-input');
     const newsletterBtn = document.querySelector('.newsletter-btn');
-    
+
     if (newsletterBtn) {
-        newsletterBtn.addEventListener('click', function(e) {
+        newsletterBtn.addEventListener('click', function (e) {
             e.preventDefault();
             const email = newsletterInput.value.trim();
-            
+
             if (email && email.includes('@')) {
                 // Here you would typically send the email to your backend
                 alert('Thank you for subscribing! We will keep you updated with the latest energy insights.');
@@ -248,17 +248,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // // Header Scroll Effect - Keep header transparent, only adjust header-bar if needed
     // const headerBar = document.querySelector('.header-bar');
     // let lastScroll = 0;
-    
+
     // window.addEventListener('scroll', function() {
     //     const currentScroll = window.pageYOffset;
-        
+
     //     // Keep header transparent, only adjust header-bar opacity slightly on scroll if needed
     //     if (currentScroll > 100) {
     //         headerBar.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 244, 246, 0.95) 100%)';
     //     } else {
     //         headerBar.style.background = 'linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(243, 244, 246, 0.85) 100%)';
     //     }
-        
+
     //     lastScroll = currentScroll;
     // });
 
@@ -268,22 +268,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function initParallax() {
         // Only apply parallax on desktop for performance
         if (window.innerWidth <= 768) return;
-        
+
         // Support multiple hero image classes across different pages
         const heroImages = document.querySelectorAll('.hero-bg-img, .about-hero-img, .projects-hero-img');
-        
+
         // Handle hanging images separately to preserve centering
         const hangingImageContainers = document.querySelectorAll('.hero-hanging-image');
-        
+
         if (heroImages.length > 0 || hangingImageContainers.length > 0) {
             let ticking = false;
-            
-            window.addEventListener('scroll', function() {
+
+            window.addEventListener('scroll', function () {
                 if (!ticking) {
-                    window.requestAnimationFrame(function() {
+                    window.requestAnimationFrame(function () {
                         const scrolled = window.pageYOffset;
                         const speed = 0.25; // Subtle parallax speed
-                        
+
                         // Apply parallax to regular hero images
                         heroImages.forEach(img => {
                             // Skip about-hero-img to prevent gray background glitch
@@ -291,25 +291,25 @@ document.addEventListener('DOMContentLoaded', function() {
                                 img.style.transform = 'translate3d(0, 0, 0)';
                                 return;
                             }
-                            
+
                             // Get the parent container to check bounds
                             const container = img.closest('.hero-section, .projects-hero-section, .hero-bg');
-                            
+
                             if (container) {
                                 const containerTop = container.offsetTop;
                                 const containerHeight = container.offsetHeight;
                                 const containerBottom = containerTop + containerHeight;
-                                
+
                                 // Only apply parallax when container is in viewport
                                 if (scrolled >= containerTop && scrolled <= containerBottom) {
                                     // Calculate parallax relative to container position
                                     const relativeScroll = scrolled - containerTop;
                                     const yPos = -(relativeScroll * speed);
-                                    
+
                                     // Limit parallax to prevent revealing background
                                     const maxParallax = containerHeight * 0.1; // Max 10% of container height
                                     const limitedYPos = Math.max(-maxParallax, Math.min(0, yPos));
-                                    
+
                                     img.style.transform = `translate3d(0, ${limitedYPos}px, 0)`;
                                 } else if (scrolled < containerTop) {
                                     // Before container - reset
@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                 img.style.willChange = 'transform';
                             }
                         });
-                        
+
                         // Apply parallax to hanging image containers (preserve centering)
                         hangingImageContainers.forEach(container => {
                             const yPos = -(scrolled * 0.15); // Slower for hanging images
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             container.style.transform = `translateX(-50%) translateY(${yPos}px)`;
                             container.style.willChange = 'transform';
                         });
-                        
+
                         ticking = false;
                     });
                     ticking = true;
@@ -351,8 +351,8 @@ document.addEventListener('DOMContentLoaded', function() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
-    const observer = new IntersectionObserver(function(entries) {
+
+    const observer = new IntersectionObserver(function (entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('fade-in');
@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-    
+
     // Observe all sections and cards across all pages (excluding timeline-item and 2-column grids - handled separately)
     const animateElements = document.querySelectorAll('.service-card, .portfolio-card, .testimonial-card, .why-choose-card, .leadership-card, .service-card-white, .content-image-wrapper, .newsletter-cta-box');
     animateElements.forEach(el => {
@@ -376,16 +376,16 @@ document.addEventListener('DOMContentLoaded', function() {
     function initStaggeredAnimations() {
         // Support all page-specific card containers (excluding projects-grid and blog-grid - handled separately)
         const cardContainers = document.querySelectorAll('.services-grid, .portfolio-cards, .blogs-cards, .testimonials-cards, .why-choose-grid, .leadership-grid, .timeline-content, .services-grid-3');
-        
+
         cardContainers.forEach(container => {
             // Skip containers that are projects-grid or blog-grid (handled by two-column animations)
             if (container.classList.contains('projects-grid') || container.classList.contains('blog-grid')) {
                 return;
             }
-            
+
             // Support all card types across pages
             const cards = container.querySelectorAll('.service-card, .portfolio-card, .blog-card, .testimonial-card, .why-choose-card, .leadership-card, .service-card-white');
-            
+
             cards.forEach((card, index) => {
                 // Only add delay if not already animated
                 if (!card.classList.contains('fade-in')) {
@@ -402,22 +402,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function initHeaderScroll() {
         const headerBar = document.querySelector('.header-bar');
         if (!headerBar) return;
-        
+
         let lastScroll = 0;
         let ticking = false;
-        
-        window.addEventListener('scroll', function() {
+
+        window.addEventListener('scroll', function () {
             if (!ticking) {
-                window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function () {
                     const currentScroll = window.pageYOffset;
-                    
+
                     // Add scrolled class for enhanced backdrop
                     if (currentScroll > 50) {
                         headerBar.classList.add('scrolled');
                     } else {
                         headerBar.classList.remove('scrolled');
                     }
-                    
+
                     lastScroll = currentScroll;
                     ticking = false;
                 });
@@ -432,10 +432,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function initTextAnimations() {
         // Support all page-specific title classes
         const textElements = document.querySelectorAll('.hero-title, .section-title, .portfolio-title, .blogs-title, .testimonials-title, .timeline-main-title, .leadership-header h2, .vision-content h2');
-        
+
         if (textElements.length === 0) return;
-        
-        const textObserver = new IntersectionObserver(function(entries) {
+
+        const textObserver = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('text-revealed');
@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, { threshold: 0.2 });
-        
+
         textElements.forEach(text => {
             // Only animate if not already visible (to avoid flash)
             if (text.offsetParent !== null) {
@@ -461,8 +461,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function initCounterAnimation() {
         const counters = document.querySelectorAll('.stat-number, .stat-value');
         if (counters.length === 0) return;
-        
-        const counterObserver = new IntersectionObserver(function(entries) {
+
+        const counterObserver = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
                     animateCounter(entry.target);
@@ -471,27 +471,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }, { threshold: 0.5 });
-        
+
         counters.forEach(counter => {
             counterObserver.observe(counter);
         });
     }
-    
+
     function animateCounter(element) {
         const text = element.textContent.trim();
         const match = text.match(/(\d+\.?\d*)/);
         if (!match) return;
-        
+
         const target = parseFloat(match[1]);
         if (isNaN(target) || target <= 0) return;
-        
+
         const suffix = text.replace(match[0], '').trim();
         const originalText = text;
         let current = 0;
         const increment = target / 40;
         const duration = 1500;
         const stepTime = duration / 40;
-        
+
         const timer = setInterval(() => {
             current += increment;
             if (current >= target) {
@@ -533,13 +533,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function initTimelineLineAnimation() {
         const timelineContent = document.querySelector('.timeline-content');
         if (!timelineContent) return;
-        
+
         const timelineSection = document.querySelector('.timeline-section');
         if (!timelineSection) return;
-        
+
         const timelineItems = document.querySelectorAll('.timeline-item');
         if (timelineItems.length === 0) return;
-        
+
         // Initialize timeline items with fade-in styles
         timelineItems.forEach((item, index) => {
             item.style.opacity = '0';
@@ -547,29 +547,29 @@ document.addEventListener('DOMContentLoaded', function() {
             item.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
             item.style.willChange = 'opacity, transform';
         });
-        
+
         // Track scroll direction
         let lastScrollY = window.pageYOffset || window.scrollY;
-        
+
         // Update timeline line and items based on scroll progress
         let ticking = false;
-        
+
         function updateTimeline() {
             const scrollY = window.pageYOffset || window.scrollY;
             const windowHeight = window.innerHeight;
             const scrollingDown = scrollY > lastScrollY;
             lastScrollY = scrollY;
-            
+
             // Get section position
             const sectionTop = timelineSection.offsetTop;
             const sectionHeight = timelineSection.offsetHeight;
-            
+
             // Calculate timeline line progress
             const startOffset = windowHeight * 0.2;
             const animationStart = sectionTop - startOffset;
             const animationEnd = sectionTop + sectionHeight - windowHeight + startOffset;
             const animationRange = animationEnd - animationStart;
-            
+
             let lineProgress = 0;
             if (scrollY >= animationStart && scrollY <= animationEnd) {
                 lineProgress = (scrollY - animationStart) / animationRange;
@@ -578,22 +578,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 lineProgress = 1;
             }
             timelineContent.style.setProperty('--timeline-line-progress', lineProgress);
-            
+
             // Update each timeline item
             timelineItems.forEach((item, index) => {
                 const itemTop = item.offsetTop;
                 const itemHeight = item.offsetHeight;
                 const itemBottom = itemTop + itemHeight;
-                
+
                 // Trigger point: when item reaches 60% of viewport
                 const triggerPoint = scrollY + windowHeight * 0.6;
-                
+
                 // Check if item has been scrolled past (downward)
                 const hasBeenScrolledPast = scrollY > itemTop - windowHeight * 0.4;
-                
+
                 // Check if scrolling back up past the item
                 const isAboveTrigger = scrollY < itemTop - windowHeight * 0.6;
-                
+
                 if (hasBeenScrolledPast && !isAboveTrigger) {
                     // Item should be visible
                     if (item.style.opacity !== '1') {
@@ -614,17 +614,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
             });
-            
+
             ticking = false;
         }
-        
-        window.addEventListener('scroll', function() {
+
+        window.addEventListener('scroll', function () {
             if (!ticking) {
                 window.requestAnimationFrame(updateTimeline);
                 ticking = true;
             }
         });
-        
+
         // Initial calculation
         updateTimeline();
     }
@@ -636,24 +636,24 @@ document.addEventListener('DOMContentLoaded', function() {
         // Projects grid
         const projectsGrid = document.querySelector('.projects-grid');
         const projectCards = document.querySelectorAll('.project-card');
-        
+
         // Blogs grid
         const blogsGrid = document.querySelector('.blog-grid');
         const blogCards = document.querySelectorAll('.blog-grid .blog-card');
-        
+
         // Function to animate cards based on column position
         function setupGridAnimation(cards, gridSelector) {
             if (cards.length === 0) return;
-            
+
             cards.forEach((card, index) => {
                 // Determine if card is in left column (even index) or right column (odd index)
                 const isLeftColumn = index % 2 === 0;
-                
+
                 // Set initial state
                 card.style.opacity = '0';
                 card.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
                 card.style.willChange = 'opacity, transform';
-                
+
                 if (isLeftColumn) {
                     // Left column: fade in from left
                     card.style.transform = 'translateX(-80px)';
@@ -661,9 +661,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Right column: fade in from right
                     card.style.transform = 'translateX(80px)';
                 }
-                
+
                 // Create observer for this card
-                const cardObserver = new IntersectionObserver(function(entries) {
+                const cardObserver = new IntersectionObserver(function (entries) {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             // Card entered viewport - animate in
@@ -676,11 +676,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     threshold: 0.15,
                     rootMargin: '0px 0px -100px 0px'
                 });
-                
+
                 cardObserver.observe(card);
             });
         }
-        
+
         // Setup animations for both grids
         setupGridAnimation(projectCards, '.projects-grid');
         setupGridAnimation(blogCards, '.blog-grid');
@@ -692,34 +692,34 @@ document.addEventListener('DOMContentLoaded', function() {
     function initVisionSectionAnimation() {
         const visionSection = document.querySelector('.vision-section');
         if (!visionSection) return;
-        
+
         const visionImageWrapper = document.querySelector('.vision-image-wrapper');
         const visionContent = document.querySelector('.vision-content');
-        
+
         if (!visionImageWrapper || !visionContent) return;
-        
+
         // Set initial states
         visionImageWrapper.style.opacity = '0';
         visionImageWrapper.style.transform = 'translateX(-80px)';
         visionImageWrapper.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
         visionImageWrapper.style.willChange = 'opacity, transform';
-        
+
         visionContent.style.opacity = '0';
         visionContent.style.transform = 'translateX(80px)';
         visionContent.style.transition = 'opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
         visionContent.style.willChange = 'opacity, transform';
-        
+
         // Create observer for the section
-        const sectionObserver = new IntersectionObserver(function(entries) {
+        const sectionObserver = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     // Section entered viewport - animate both elements
                     visionImageWrapper.style.opacity = '1';
                     visionImageWrapper.style.transform = 'translateX(0)';
-                    
+
                     visionContent.style.opacity = '1';
                     visionContent.style.transform = 'translateX(0)';
-                    
+
                     sectionObserver.unobserve(entry.target);
                 }
             });
@@ -727,7 +727,7 @@ document.addEventListener('DOMContentLoaded', function() {
             threshold: 0.2,
             rootMargin: '0px 0px -100px 0px'
         });
-        
+
         sectionObserver.observe(visionSection);
     }
 
@@ -746,14 +746,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const scrollableHeight = documentHeight - windowHeight;
             const scrollProgress = (scrollTop / scrollableHeight) * 100;
-            
+
             progressBar.style.width = Math.min(scrollProgress, 100) + '%';
         }
 
         let ticking = false;
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             if (!ticking) {
-                window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function () {
                     updateScrollProgress();
                     ticking = false;
                 });
@@ -778,5 +778,62 @@ document.addEventListener('DOMContentLoaded', function() {
     initVisionSectionAnimation();
     initScrollProgress();
     // Card hover effects handled by CSS for better performance
+    // ============================================
+    // CAREERS PAGE FILTERING
+    // ============================================
+    function initCareerFiltering() {
+        const deptFilter = document.getElementById('department-filter');
+        const locFilter = document.getElementById('location-filter');
+
+        if (!deptFilter || !locFilter) return;
+
+        const jobCards = document.querySelectorAll('.job-card');
+        const deptGroups = document.querySelectorAll('.department-group');
+
+        function filterJobs() {
+            const selectedDept = deptFilter.value.toLowerCase();
+            const selectedLoc = locFilter.value.toLowerCase();
+
+            // Filter individual cards
+            jobCards.forEach(card => {
+                const cardDept = card.getAttribute('data-department') || '';
+                const cardLoc = card.getAttribute('data-location') || '';
+
+                const deptMatch = selectedDept === '' || cardDept === selectedDept;
+                const locMatch = selectedLoc === '' || cardLoc === selectedLoc;
+
+                if (deptMatch && locMatch) {
+                    card.style.display = 'block';
+                    // Re-trigger fade-in if needed, or ensuring opacity is 1
+                    if (card.style.opacity === '0') {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Handle empty department groups
+            deptGroups.forEach(group => {
+                let hasVisible = false;
+                const cards = group.querySelectorAll('.job-card');
+                cards.forEach(c => {
+                    if (c.style.display !== 'none') hasVisible = true;
+                });
+
+                if (hasVisible) {
+                    group.style.display = 'block';
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+        }
+
+        deptFilter.addEventListener('change', filterJobs);
+        locFilter.addEventListener('change', filterJobs);
+    }
+
+    initCareerFiltering();
 });
 
