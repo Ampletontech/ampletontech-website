@@ -21,7 +21,8 @@
 
 .about-hero-img {
     width: 100%;
-    height: 120%; /* Extra height to cover parallax movement */
+    height: 120%;
+    /* Extra height to cover parallax movement */
     object-fit: cover;
     object-position: center;
 }
@@ -184,7 +185,8 @@
 .timeline-item {
     position: relative;
     display: grid;
-    grid-template-columns: 32px 64px 1fr; /* line | year | content */
+    grid-template-columns: 32px 64px 1fr;
+    /* line | year | content */
     column-gap: 24px;
     padding-bottom: 64px;
 }
@@ -205,7 +207,8 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 12px; /* center of line column */
+    left: 12px;
+    /* center of line column */
     width: 8px;
     height: 100%;
     background: #111827;
@@ -513,38 +516,42 @@
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
-    
+
     .leadership-card {
         height: 350px;
     }
-    
+
     .leadership-header-row {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
-    
+
     .leadership-title-col,
     .leadership-desc-col {
         align-items: center;
         text-align: center;
     }
-    
+
     .leadership-desc-col {
         padding-top: 0;
     }
-    
+
     .vision-grid {
         grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
-    
+
     .vision-content {
         margin-right: 0;
+        width: 100%;
+        max-width: 100%;
     }
-    
+
     .about-hero-section {
-        padding: 100px 20px 40px 20px;
-        align-items: flex-end;
+        width: calc(100% - 32px);
+        margin: 16px auto 0;
+        min-height: 60vh;
+        border-radius: 16px;
     }
 
     .about-hero-content {

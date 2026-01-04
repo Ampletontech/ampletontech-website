@@ -174,7 +174,8 @@
     background-color: #ffffff;
     position: relative;
     z-index: 5;
-    margin-top: 10vh; /* Space for hanging image overflow */
+    margin-top: 10vh;
+    /* Space for hanging image overflow */
 }
 
 .content-section {
@@ -447,7 +448,7 @@
         width: 65%;
         top: 50%;
     }
-    
+
     .main-content {
         margin-top: 20vh;
     }
@@ -465,12 +466,12 @@
     .mep-hero.hero-section {
         height: 70vh;
         min-height: 70vh;
-        max-height: 70vh;
+        max-height: 60vh;
     }
-    
+
     .service-hero-wrapper {
         height: auto;
-        min-height: 100vh;
+        min-height: 80vh;
     }
 
     .hero-hanging-image {
@@ -482,7 +483,7 @@
         max-width: 100%;
         margin: -80px auto 40px;
     }
-    
+
     .main-content {
         margin-top: 0;
     }

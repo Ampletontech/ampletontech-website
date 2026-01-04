@@ -97,10 +97,21 @@
 
 /* Maintain 2 columns on mobile but with reduced sizes */
 @media (max-width: 768px) {
+    .projects-hero-section {
+        width: calc(100% - 32px);
+        margin: 16px auto 0;
+        min-height: 60vh;
+        border-radius: 16px;
+    }
+
+    .projects-grid-section {
+        padding: 40px 20px;
+    }
+
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .project-image-wrapper {
         height: 200px;
     }
@@ -111,15 +122,19 @@
     .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
+    .projects-grid-section {
+        padding: 40px 16px;
+    }
+
     .project-image-wrapper {
         height: 250px;
     }
-    
+
     .project-title {
         font-size: 1.25rem;
     }
-    
+
     .project-description {
         font-size: 0.85rem;
     }
