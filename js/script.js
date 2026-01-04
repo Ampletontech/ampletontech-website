@@ -826,5 +826,162 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     initCareerFiltering();
-});
 
+
+    // ============================================
+    // PREMIUM ANIMATIONS LOGIC (v2.0)
+    // ============================================
+    function initPremiumAnimations() {
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) return;
+
+        // 1. Intersection Observer for Reveals (Job Cards, Location Cards, Contact Form)
+        const revealConfig = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+
+                    // Stagger logic for job cards mainly
+                    const delay = el.dataset.delay || 0;
+
+                    setTimeout(() => {
+                        el.classList.add('is-visible');
+                    }, delay);
+
+                    revealObserver.unobserve(el);
+                }
+            });
+        }, revealConfig);
+
+        // Target Elements
+        document.querySelectorAll('.job-card').forEach((el, idx) => {
+            // Add stagger based on visually perceived row/order
+            // Simple generic stagger: (index % 3) * 100ms
+            const staggerDelay = (idx % 3) * 100;
+            el.dataset.delay = staggerDelay;
+            revealObserver.observe(el);
+        });
+
+        document.querySelectorAll('.location-card').forEach((el, idx) => {
+            el.dataset.delay = idx * 150; // Sequential stagger for locations
+            revealObserver.observe(el);
+        });
+
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) revealObserver.observe(contactForm);
+
+        // 2. Magnetic Buttons (Magnetic Pull Effect) - Desktop Only
+        if (window.matchMedia('(hover: hover)').matches) {
+            const magnets = document.querySelectorAll('.magnetic-btn');
+            magnets.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    // Calculate distance from center
+                    const cX = rect.width / 2;
+                    const cY = rect.height / 2;
+
+                    const deltaX = (x - cX) / 4; // Intensity divisor
+                    const deltaY = (y - cY) / 4;
+
+                    btn.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+                });
+
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = 'translate(0, 0)';
+                });
+            });
+        }
+
+        // Ripple Effect Click (All Devices)
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple-wave');
+                ripple.style.left = `${x}px`;
+                ripple.style.top = `${y}px`;
+                btn.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // 3. Accordion / Drawer Logic (Location Cards)
+        document.querySelectorAll('.location-card').forEach(card => {
+            const toggle = card.querySelector('.location-name');
+            if (toggle) {
+                toggle.addEventListener('click', () => {
+                    const isOpen = card.classList.contains('is-open');
+
+                    // Close others? Optional. Let's keep others open for comparison or close for focus.
+                    // Premium feel often implies focus, so let's close others.
+                    document.querySelectorAll('.location-card.is-open').forEach(openCard => {
+                        if (openCard !== card) openCard.classList.remove('is-open');
+                    });
+
+                    card.classList.toggle('is-open');
+                });
+            }
+        });
+
+        // 4. Form Interactions (Focus Spotlight & Button Morph)
+        const inputs = document.querySelectorAll('.form-group input, .form-group select');
+        inputs.forEach(input => {
+            // Floater Logic
+            const checkValue = () => {
+                const parent = input.closest('.form-group');
+                if (input.value.trim() !== '') parent.classList.add('has-value');
+                else parent.classList.remove('has-value');
+            };
+
+            input.addEventListener('focus', () => {
+                input.closest('.form-group').classList.add('has-focus');
+            });
+
+            input.addEventListener('blur', () => {
+                input.closest('.form-group').classList.remove('has-focus');
+                checkValue();
+            });
+
+            // Check initial value
+            checkValue();
+        });
+
+        // Submit Button Morph
+        const form = document.querySelector('.contact-form');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('.submit-btn');
+                if (btn) {
+                    const originalText = btn.innerHTML; // Save content including SVG
+                    btn.classList.add('is-loading');
+
+                    // Simulate API call
+                    setTimeout(() => {
+                        btn.classList.remove('is-loading');
+                        btn.innerHTML = `<svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Sent!`;
+
+                        setTimeout(() => {
+                            btn.innerHTML = originalText;
+                            form.reset();
+                            // Reset floating labels
+                            document.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-value'));
+                        }, 2000);
+                    }, 2000);
+                }
+            });
+        }
+    }
+
+    // Init
+    initPremiumAnimations();
+
+}); // End DOMContentLoaded
