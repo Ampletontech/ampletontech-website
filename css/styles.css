@@ -976,12 +976,14 @@ img {
     stroke: #374151;
 }
 
-.portfolio-carousel-btn.active {
+.portfolio-carousel-btn.active,
+.portfolio-carousel-btn:active {
     background: #f4edf8;
     border: 1px solid #B886DB;
 }
 
-.portfolio-carousel-btn.active svg {
+.portfolio-carousel-btn.active svg,
+.portfolio-carousel-btn:active svg {
     stroke: var(--primary-color);
 }
 
@@ -1257,12 +1259,14 @@ img {
     stroke: #374151;
 }
 
-.blogs-carousel-btn.active {
+.blogs-carousel-btn.active,
+.blogs-carousel-btn:active {
     background: #f4edf8;
     border: 1px solid #B886DB;
 }
 
-.blogs-carousel-btn.active svg {
+.blogs-carousel-btn.active svg,
+.blogs-carousel-btn:active svg {
     stroke: var(--primary-color);
 }
 
