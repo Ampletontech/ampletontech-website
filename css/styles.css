@@ -2715,6 +2715,7 @@ img {
     /* Glassmorphism subtle base */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    filter: none;
 }
 
 /* Scroll Triggered Active State */
@@ -2726,12 +2727,7 @@ img {
 /* Desktop Hover Effects */
 @media (hover: hover) and (min-width: 768px) {
 
-    /* When grid is hovered, dim all cards */
-    .jobs-grid:hover .job-card {
-        opacity: 0.7;
-        filter: blur(1px) grayscale(0.2);
-        transform: scale(0.98);
-    }
+
 
     /* Exception for the specific hovered card */
     .jobs-grid .job-card:hover {
@@ -2809,11 +2805,14 @@ img {
 
 /* Accordion Drawer */
 .location-card .location-details {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transform: translateY(-10px);
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.4s ease;
+    /* max-height: 0; */
+    /* opacity: 0; */
+    /* overflow: hidden; */
+    /* transform: translateY(-10px); */
+    /* transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.4s ease; */
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 10px;
 }
 
 .location-card.is-open .location-details {
@@ -2825,20 +2824,14 @@ img {
 
 /* Toggle Indicator */
 .location-name {
-    cursor: pointer;
+    /* cursor: pointer; */
     position: relative;
-    padding-right: 30px;
+    /* padding-right: 30px; */
 }
 
 .location-name::after {
-    content: '+';
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    font-weight: 300;
-    transition: transform 0.3s ease;
-    color: var(--primary-color);
+    content: '';
+    display: none;
 }
 
 .location-card.is-open .location-name::after {
