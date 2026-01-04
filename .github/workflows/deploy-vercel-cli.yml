@@ -1,12 +1,13 @@
-name: Deploy to Vercel (dev and main)   
+name: Deploy to Vercel (dev and main)
 
 on:
   push:
     branches:
       - dev
       - main
-      
   workflow_dispatch: # Allows manual triggering
+  repository_dispatch: # Allows triggering via external webhooks (deploy hooks)
+    types: [deploy_event]
 
 jobs:
   deploy:
@@ -39,7 +40,7 @@ jobs:
       - name: Deploy to Vercel (Preview for dev branch)
         if: steps.deployment.outputs.type == 'preview'
         run: |
-          npx vercel \
+          npx vercel --yes \
             --token=${{ secrets.VERCEL_TOKEN }} \
             --scope=${{ secrets.VERCEL_ORG_ID }} \
             -m githubCommitSha=${{ github.sha }} \
@@ -59,7 +60,7 @@ jobs:
       - name: Deploy to Vercel (Production for main/master branch)
         if: steps.deployment.outputs.type == 'production'
         run: |
-          npx vercel --prod \
+          npx vercel --prod --yes \
             --token=${{ secrets.VERCEL_TOKEN }} \
             --scope=${{ secrets.VERCEL_ORG_ID }} \
             -m githubCommitSha=${{ github.sha }} \
@@ -75,5 +76,3 @@ jobs:
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-
-
