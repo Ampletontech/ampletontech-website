@@ -126,32 +126,27 @@ document.addEventListener('DOMContentLoaded', function () {
     const portfolioNextBtn = document.querySelector('.portfolio-carousel .portfolio-carousel-next') || document.querySelector('.portfolio-carousel .carousel-btn-next');
 
     if (portfolioCards && portfolioPrevBtn && portfolioNextBtn) {
-        let portfolioScrollPosition = 0;
-        const portfolioCardWidth = portfolioCards.querySelector('.portfolio-card').offsetWidth;
-        const portfolioGap = 32; // gap between cards
-        const portfolioScrollAmount = portfolioCardWidth + portfolioGap;
-
         portfolioNextBtn.addEventListener('click', function () {
-            portfolioScrollPosition += portfolioScrollAmount;
-            const maxScroll = portfolioCards.scrollWidth - portfolioCards.offsetWidth;
-            if (portfolioScrollPosition > maxScroll) {
-                portfolioScrollPosition = maxScroll;
+            const card = portfolioCards.querySelector('.portfolio-card');
+            if (card) {
+                // Calculate scroll amount dynamically
+                const scrollAmount = card.offsetWidth + 32;
+                portfolioCards.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
             }
-            portfolioCards.scrollTo({
-                left: portfolioScrollPosition,
-                behavior: 'smooth'
-            });
         });
 
         portfolioPrevBtn.addEventListener('click', function () {
-            portfolioScrollPosition -= portfolioScrollAmount;
-            if (portfolioScrollPosition < 0) {
-                portfolioScrollPosition = 0;
+            const card = portfolioCards.querySelector('.portfolio-card');
+            if (card) {
+                const scrollAmount = card.offsetWidth + 32;
+                portfolioCards.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
             }
-            portfolioCards.scrollTo({
-                left: portfolioScrollPosition,
-                behavior: 'smooth'
-            });
         });
     }
 
