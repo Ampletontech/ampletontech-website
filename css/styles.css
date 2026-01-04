@@ -1451,7 +1451,7 @@ img {
 
 .faq-item {
     background-color: #ffffff;
-    border-radius: 50px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid #E5E7EB;
