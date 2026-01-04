@@ -1,12 +1,13 @@
-name: Deploy to Vercel (dev and main)   
+name: Deploy to Vercel (dev and main)
 
 on:
   push:
     branches:
       - dev
       - main
-      
   workflow_dispatch: # Allows manual triggering
+  repository_dispatch: # Allows triggering via external webhooks (deploy hooks)
+    types: [deploy_event]
 
 jobs:
   deploy:
@@ -39,7 +40,13 @@ jobs:
       - name: Deploy to Vercel (Preview for dev branch)
         if: steps.deployment.outputs.type == 'preview'
         run: |
-          npx vercel \
+          # Define commit message with fallback
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          if [[ -z "$COMMIT_MSG" ]]; then
+            COMMIT_MSG="Deployment triggered via ${{ github.event_name }} (${{ github.sha }})"
+          fi
+
+          npx vercel --yes \
             --token=${{ secrets.VERCEL_TOKEN }} \
             --scope=${{ secrets.VERCEL_ORG_ID }} \
             -m githubCommitSha=${{ github.sha }} \
@@ -50,7 +57,7 @@ jobs:
             -m githubRepo=${{ github.event.repository.name }} \
             -m githubCommitOrg=${{ github.repository_owner }} \
             -m githubCommitRepo=${{ github.event.repository.name }} \
-            -m githubCommitMessage="${{ github.event.head_commit.message }}" \
+            -m githubCommitMessage="$COMMIT_MSG" \
             -m githubCommitRef=${{ github.ref_name }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -59,7 +66,13 @@ jobs:
       - name: Deploy to Vercel (Production for main/master branch)
         if: steps.deployment.outputs.type == 'production'
         run: |
-          npx vercel --prod \
+          # Define commit message with fallback
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          if [[ -z "$COMMIT_MSG" ]]; then
+            COMMIT_MSG="Deployment triggered via ${{ github.event_name }} (${{ github.sha }})"
+          fi
+
+          npx vercel --prod --yes \
             --token=${{ secrets.VERCEL_TOKEN }} \
             --scope=${{ secrets.VERCEL_ORG_ID }} \
             -m githubCommitSha=${{ github.sha }} \
@@ -70,10 +83,8 @@ jobs:
             -m githubRepo=${{ github.event.repository.name }} \
             -m githubCommitOrg=${{ github.repository_owner }} \
             -m githubCommitRepo=${{ github.event.repository.name }} \
-            -m githubCommitMessage="${{ github.event.head_commit.message }}" \
+            -m githubCommitMessage="$COMMIT_MSG" \
             -m githubCommitRef=${{ github.ref_name }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-
-

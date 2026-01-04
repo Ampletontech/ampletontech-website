@@ -402,7 +402,7 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
+    padding: 6px 14px;
     background-color: #ffffff;
     border: 1px solid #E5E7EB;
     border-radius: 50px;
@@ -423,7 +423,7 @@ img {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
+    padding: 6px 14px;
     /* background-color: #ffffff; */
     border-radius: 50px;
     border: 1px solid #E5E7EB;
@@ -431,15 +431,15 @@ img {
 }
 
 .section-tag-center .tag-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: var(--primary-color);
     flex-shrink: 0;
 }
 
 .section-tag-center .tag-text {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -447,14 +447,14 @@ img {
 }
 
 .tag-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: var(--primary-color);
 }
 
 .tag-text {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
@@ -741,6 +741,30 @@ img {
     margin-bottom: 0;
 }
 
+.service-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.service-read-more span {
+    transition: transform 0.3s ease;
+}
+
+.service-read-more:hover {
+    color: var(--primary-dark);
+}
+
+.service-read-more:hover span {
+    transform: translateX(4px);
+}
+
 /* Services Pagination */
 .services-pagination {
     display: flex;
@@ -851,10 +875,24 @@ img {
 }
 
 .portfolio-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    overflow-x: auto;
     gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
+    padding-bottom: 20px;
+    /* Space for scrollbar or shadow */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    /* Enable scroll snapping */
+    /* Hide scrollbar for cleaner look */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.portfolio-cards::-webkit-scrollbar {
+    display: none;
 }
 
 .portfolio-card {
@@ -863,7 +901,31 @@ img {
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    /* Flex settings for carousel */
+    flex: 0 0 calc((100% - 2 * var(--spacing-xl)) / 3);
+    /* 3 cards visible */
+    min-width: 300px;
+    /* Ensure cards don't get too small */
+    scroll-snap-align: start;
+    /* Snap to start of card */
+
     aspect-ratio: 4/3;
+}
+
+/* Responsive adjustments for portfolio carousel */
+@media (max-width: 1024px) {
+    .portfolio-card {
+        flex: 0 0 calc((100% - var(--spacing-xl)) / 2);
+        /* 2 cards visible */
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-card {
+        flex: 0 0 100%;
+        /* 1 card visible */
+    }
 }
 
 .portfolio-card:hover {
@@ -952,12 +1014,14 @@ img {
     stroke: #374151;
 }
 
-.portfolio-carousel-btn.active {
+.portfolio-carousel-btn.active,
+.portfolio-carousel-btn:active {
     background: #f4edf8;
     border: 1px solid #B886DB;
 }
 
-.portfolio-carousel-btn.active svg {
+.portfolio-carousel-btn.active svg,
+.portfolio-carousel-btn:active svg {
     stroke: var(--primary-color);
 }
 
@@ -1109,6 +1173,26 @@ img {
 
 .blogs-header-right {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.see-all-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-bottom: 0;
+    align-self: flex-end;
+}
+
+.see-all-btn:hover {
+    transform: translateX(4px);
+    color: var(--primary-dark);
 }
 
 .blogs-description {
@@ -1122,10 +1206,24 @@ img {
 }
 
 .blogs-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    overflow-x: auto;
     gap: var(--spacing-xl);
-    overflow: visible;
+    padding-bottom: 20px;
+    /* Space for scrollbar or shadow */
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    /* Enable scroll snapping */
+    /* Hide scrollbar for cleaner look */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.blogs-cards::-webkit-scrollbar {
+    display: none;
 }
 
 
@@ -1136,6 +1234,29 @@ img {
     overflow: hidden;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+    /* Flex settings for carousel */
+    flex: 0 0 calc((100% - 2 * var(--spacing-xl)) / 3);
+    /* 3 cards visible */
+    min-width: 300px;
+    /* Ensure cards don't get too small */
+    scroll-snap-align: start;
+    /* Snap to start of card */
+}
+
+/* Responsive adjustments for carousel card sizing */
+@media (max-width: 1024px) {
+    .blog-card {
+        flex: 0 0 calc((100% - var(--spacing-xl)) / 2);
+        /* 2 cards visible */
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-card {
+        flex: 0 0 100%;
+        /* 1 card visible */
+    }
 }
 
 .blog-card:hover {
@@ -1233,12 +1354,14 @@ img {
     stroke: #374151;
 }
 
-.blogs-carousel-btn.active {
+.blogs-carousel-btn.active,
+.blogs-carousel-btn:active {
     background: #f4edf8;
     border: 1px solid #B886DB;
 }
 
-.blogs-carousel-btn.active svg {
+.blogs-carousel-btn.active svg,
+.blogs-carousel-btn:active svg {
     stroke: var(--primary-color);
 }
 
@@ -1427,7 +1550,7 @@ img {
 
 .faq-item {
     background-color: #ffffff;
-    border-radius: 50px;
+    border-radius: var(--radius-xl);
     overflow: hidden;
     transition: all 0.3s ease;
     border: 1px solid #E5E7EB;
@@ -2553,5 +2676,356 @@ img {
     .newsletter-btn::before,
     .newsletter-cta-btn::before {
         display: none;
+    }
+}
+
+/* ==========================================================================
+   PREMIUM ANIMATIONS & INTERACTIONS (v2.0)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   GLOBAL UTILITIES
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        --ease-out-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+        --ease-smooth: cubic-bezier(0.2, 0.8, 0.2, 1);
+        --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   JOB CARDS (CAREERS PAGE) - Stack to Spread
+   -------------------------------------------------------------------------- */
+.jobs-grid {
+    /* Enable 3D space for stacking illusion */
+    perspective: 1000px;
+}
+
+.job-card {
+    /* Initial Concealed State */
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+    transform-origin: center top;
+    transition:
+        opacity 0.6s var(--ease-smooth),
+        transform 0.6s var(--ease-smooth),
+        filter 0.4s ease;
+    will-change: transform, opacity;
+    /* Glassmorphism subtle base */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Scroll Triggered Active State */
+.job-card.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Desktop Hover Effects */
+@media (hover: hover) and (min-width: 768px) {
+
+    /* When grid is hovered, dim all cards */
+    .jobs-grid:hover .job-card {
+        opacity: 0.7;
+        filter: blur(1px) grayscale(0.2);
+        transform: scale(0.98);
+    }
+
+    /* Exception for the specific hovered card */
+    .jobs-grid .job-card:hover {
+        opacity: 1;
+        filter: blur(0) grayscale(0);
+        transform: scale(1.02) translateY(-4px);
+        z-index: 10;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary-color);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   LOCATION CARDS (CONTACT PAGE) - Map Pin Reveal
+   -------------------------------------------------------------------------- */
+.location-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s var(--ease-smooth);
+    border-left: 3px solid transparent;
+}
+
+.location-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Pin Icon Animation */
+.location-card svg:first-of-type {
+    transition: transform 0.4s var(--ease-out-elastic);
+}
+
+.location-card.is-visible svg:first-of-type {
+    animation: pinDrop 0.8s var(--ease-out-elastic) both;
+}
+
+@keyframes pinDrop {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Hover Effect: Border & Expand */
+@media (hover: hover) {
+    .location-card:hover {
+        transform: translateY(-2px);
+        border-left-color: var(--primary-color);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .location-card:hover .call-now-btn {
+        animation: pulseButton 1s infinite;
+    }
+}
+
+@keyframes pulseButton {
+    0% {
+        box-shadow: 0 0 0 0 rgba(118, 40, 163, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(118, 40, 163, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(118, 40, 163, 0);
+    }
+}
+
+/* Accordion Drawer */
+.location-card .location-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transform: translateY(-10px);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, transform 0.4s ease;
+}
+
+.location-card.is-open .location-details {
+    max-height: 500px;
+    /* Arbitrary large safe height */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Toggle Indicator */
+.location-name {
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px;
+}
+
+.location-name::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 300;
+    transition: transform 0.3s ease;
+    color: var(--primary-color);
+}
+
+.location-card.is-open .location-name::after {
+    transform: translateY(-50%) rotate(45deg);
+    /* Turns to x */
+}
+
+/* --------------------------------------------------------------------------
+   CONTACT FORM - Focus Spotlight
+   -------------------------------------------------------------------------- */
+.contact-form {
+    opacity: 0;
+    transform: scale(0.98);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.contact-form.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    transition: transform 0.3s ease, color 0.3s ease;
+    transform-origin: left bottom;
+}
+
+/* Floating Label Logic */
+.form-group.has-focus label,
+.form-group.has-value label {
+    transform: translateY(-2px) scale(0.9);
+    color: var(--primary-color);
+}
+
+.form-group input,
+.form-group select {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: transparent;
+    border: 1px solid #e1e1e1;
+    /* Re-enforcing border for animation base */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(118, 40, 163, 0.1);
+}
+
+/* Animated Bottom Border Spotlight */
+.form-group::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.4s var(--ease-smooth);
+    z-index: 2;
+}
+
+.form-group.has-focus::after {
+    width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   MAGNETIC BUTTONS & RIPPLES
+   -------------------------------------------------------------------------- */
+.magnetic-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Ensure native transition doesn't conflict with JS transform */
+    transition: transform 0.1s linear;
+    /* Keep other transitions separate */
+}
+
+/* Ripple Element */
+.ripple-wave {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: rippleEffect 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Arrow Slide Effect on Hover */
+.magnetic-btn svg {
+    transition: transform 0.3s var(--ease-out-elastic);
+}
+
+.magnetic-btn:hover svg {
+    transform: translateX(4px);
+}
+
+/* Submit Button Loading State */
+.submit-btn {
+    position: relative;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.submit-btn.is-loading {
+    width: 50px;
+    /* Circle shrink */
+    color: transparent;
+    pointer-events: none;
+}
+
+.submit-btn.is-loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    left: calc(50% - 10px);
+    top: calc(50% - 10px);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY OVERRIDES
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+
+    .job-card,
+    .location-card,
+    .contact-form,
+    .magnetic-btn {
+        transition: none !important;
+        transform: none !important;
+        animation: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+    }
+
+    .job-card.is-visible,
+    .location-card.is-visible {
+        transform: none !important;
+    }
+
+    /* Keep Accordion functionality but snappy */
+    .location-card .location-details {
+        transition: none !important;
+    }
+}
+
+/* Success Checkmark Animation */
+.checkmark-svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: drawCheck 0.6s var(--ease-out-elastic) forwards;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+@keyframes drawCheck {
+    to {
+        stroke-dashoffset: 0;
     }
 }
