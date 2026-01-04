@@ -40,6 +40,12 @@ jobs:
       - name: Deploy to Vercel (Preview for dev branch)
         if: steps.deployment.outputs.type == 'preview'
         run: |
+          # Define commit message with fallback
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          if [[ -z "$COMMIT_MSG" ]]; then
+            COMMIT_MSG="Deployment triggered via ${{ github.event_name }} (${{ github.sha }})"
+          fi
+
           npx vercel --yes \
             --token=${{ secrets.VERCEL_TOKEN }} \
             --scope=${{ secrets.VERCEL_ORG_ID }} \
@@ -51,7 +57,7 @@ jobs:
             -m githubRepo=${{ github.event.repository.name }} \
             -m githubCommitOrg=${{ github.repository_owner }} \
             -m githubCommitRepo=${{ github.event.repository.name }} \
-            -m githubCommitMessage="${{ github.event.head_commit.message }}" \
+            -m githubCommitMessage="$COMMIT_MSG" \
             -m githubCommitRef=${{ github.ref_name }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -60,6 +66,12 @@ jobs:
       - name: Deploy to Vercel (Production for main/master branch)
         if: steps.deployment.outputs.type == 'production'
         run: |
+          # Define commit message with fallback
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          if [[ -z "$COMMIT_MSG" ]]; then
+            COMMIT_MSG="Deployment triggered via ${{ github.event_name }} (${{ github.sha }})"
+          fi
+
           npx vercel --prod --yes \
             --token=${{ secrets.VERCEL_TOKEN }} \
             --scope=${{ secrets.VERCEL_ORG_ID }} \
@@ -71,7 +83,7 @@ jobs:
             -m githubRepo=${{ github.event.repository.name }} \
             -m githubCommitOrg=${{ github.repository_owner }} \
             -m githubCommitRepo=${{ github.event.repository.name }} \
-            -m githubCommitMessage="${{ github.event.head_commit.message }}" \
+            -m githubCommitMessage="$COMMIT_MSG" \
             -m githubCommitRef=${{ github.ref_name }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
