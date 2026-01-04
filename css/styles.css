@@ -2715,6 +2715,7 @@ img {
     /* Glassmorphism subtle base */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
+    filter: none;
 }
 
 /* Scroll Triggered Active State */
@@ -2726,12 +2727,7 @@ img {
 /* Desktop Hover Effects */
 @media (hover: hover) and (min-width: 768px) {
 
-    /* When grid is hovered, dim all cards */
-    .jobs-grid:hover .job-card {
-        opacity: 0.7;
-        filter: blur(1px) grayscale(0.2);
-        transform: scale(0.98);
-    }
+
 
     /* Exception for the specific hovered card */
     .jobs-grid .job-card:hover {
