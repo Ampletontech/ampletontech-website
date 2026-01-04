@@ -741,6 +741,30 @@ img {
     margin-bottom: 0;
 }
 
+.service-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 24px;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.service-read-more span {
+    transition: transform 0.3s ease;
+}
+
+.service-read-more:hover {
+    color: var(--primary-dark);
+}
+
+.service-read-more:hover span {
+    transform: translateX(4px);
+}
+
 /* Services Pagination */
 .services-pagination {
     display: flex;
