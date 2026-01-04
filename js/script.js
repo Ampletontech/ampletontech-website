@@ -914,22 +914,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         // 3. Accordion / Drawer Logic (Location Cards)
-        document.querySelectorAll('.location-card').forEach(card => {
-            const toggle = card.querySelector('.location-name');
-            if (toggle) {
-                toggle.addEventListener('click', () => {
-                    const isOpen = card.classList.contains('is-open');
+        // 3. Accordion / Drawer Logic (Location Cards) - DISABLED as they are always visible now
+        // document.querySelectorAll('.location-card').forEach(card => {
+        //     const toggle = card.querySelector('.location-name');
+        //     if (toggle) {
+        //         toggle.addEventListener('click', () => {
+        //             const isOpen = card.classList.contains('is-open');
 
-                    // Close others? Optional. Let's keep others open for comparison or close for focus.
-                    // Premium feel often implies focus, so let's close others.
-                    document.querySelectorAll('.location-card.is-open').forEach(openCard => {
-                        if (openCard !== card) openCard.classList.remove('is-open');
-                    });
+        //             // Close others? Optional. Let's keep others open for comparison or close for focus.
+        //             // Premium feel often implies focus, so let's close others.
+        //             document.querySelectorAll('.location-card.is-open').forEach(openCard => {
+        //                 if (openCard !== card) openCard.classList.remove('is-open');
+        //             });
 
-                    card.classList.toggle('is-open');
-                });
-            }
-        });
+        //             card.classList.toggle('is-open');
+        //         });
+        //     }
+        // });
 
         // 4. Form Interactions (Focus Spotlight & Button Morph)
         const inputs = document.querySelectorAll('.form-group input, .form-group select');
