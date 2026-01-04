@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     function initTextAnimations() {
         // Support all page-specific title classes
-        const textElements = document.querySelectorAll('.hero-title, .section-title, .portfolio-title, .blogs-title, .testimonials-title, .who-we-are-intro, .timeline-main-title, .leadership-header h2, .vision-content h2');
+        const textElements = document.querySelectorAll('.hero-title, .section-title, .portfolio-title, .blogs-title, .testimonials-title, .timeline-main-title, .leadership-header h2, .vision-content h2');
         
         if (textElements.length === 0) return;
         
