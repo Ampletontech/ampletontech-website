@@ -1,427 +1,534 @@
-/* Blog Details Specific Styles */
+/* Blog Details Specific Styles - Redesign */
 
-/* Hero Section */
-.blog-detail-hero {
-    /* Background handled by inner .hero-bg now */
-    background: transparent;
-    position: relative;
-    padding: 160px 0 100px;
-    color: #ffffff;
-    text-align: center;
-    border-radius: 0 0 40px 40px;
-    margin-bottom: 40px;
-    overflow: hidden;
-    /* Ensure image and overlay stay inside the rounded corners */
-    display: flex;
-    /* Global styles might set display flex on .hero-section, keeping it safe here too if needed, but relative/block is safer for custom layout unless using flex centering */
-    /* The global .hero-section uses flex but we are using .blog-detail-hero. 
-       We rely on padding for height here. */
+:root {
+  --blog-purple: #7a1fa2;
+  --blog-purple-dark: #5d1f82;
+  --blog-purple-light: #8b5cf6;
+  --blog-green: #064e3b;
 }
 
-/* Reuse global .hero-bg styles from styles.css where possible, but ensure stacking is correct here */
+/* ============================================
+   HERO SECTION WRAPPER - 100vh Container
+   ============================================ */
+.blog-detail-hero-wrapper {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: visible;
+}
+
+/* ============================================
+   HERO SECTION - Match MEP Services EXACTLY
+   ============================================ */
+.blog-detail-hero {
+  position: relative;
+  width: calc(100% - 40px);
+  margin: 20px auto 0;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  background-color: var(
+    --blog-purple-dark
+  ); /* Base color to prevent light gaps */
+}
+
 .hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .hero-bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 120%; /* Increased to accommodate parallax scroll without gaps */
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  filter: brightness(100%) !important;
 }
 
-/* Overlay for the background image to maintain purple theme */
 .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(156, 39, 176, 0.85) 0%, rgba(103, 58, 183, 0.9) 100%);
-    z-index: 2;
-    /* On top of image */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(122, 31, 162, 0.8) 0%,
+    rgba(93, 31, 130, 0.95) 100%
+  );
+  z-index: 3;
 }
 
-/* Adjustments for fixed header spacing */
-.blog-detail-hero .hero-container {
-    position: relative;
-    z-index: 3;
-    /* On top of overlay */
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    width: 100%;
+/* Content Wrapper - Using similar logic to MEP Services */
+.hero-container {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  padding: 0 20px;
+  margin-top: -100px; /* Offset to center text better above hanging image */
 }
 
-.breadcrumb-pill {
-    display: inline-block;
-    padding: 6px 16px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(4px);
-    border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
+/* Nav Positioning */
+.hero-top-nav {
+  position: absolute;
+  top: -140px; /* Matches the content-to-header spacing */
+  left: 20px;
+}
+
+.back-link {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  opacity: 1;
+}
+
+.category-pill {
+  margin: 0 auto 24px;
+  background-color: white;
+  padding: 6px 16px;
+  border-radius: 50px;
+  color: black;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
 }
 
 .blog-detail-title {
-    font-size: 3rem;
-    line-height: 1.2;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: #ffffff;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.15;
+  /* margin-bottom: 24px; */
+  color: white;
+  letter-spacing: -0.02em;
 }
 
 .blog-detail-meta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 48px;
 }
 
-.social-share {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+/* ============================================
+   HANGING IMAGE STYLES - Exact MEP Sync
+   ============================================ */
+.hero-hanging-image-container {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 55%;
+  max-width: 750px;
+  z-index: 20;
 }
 
-.share-label {
-    font-size: 0.875rem;
-    opacity: 0.8;
+.hanging-image-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.hanging-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Social Sidebar Beside Image */
+.social-sidebar {
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: absolute;
+  right: -80px; /* Standard sidebar spacing */
+  top: 40px;
+  color: #ffffff;
+}
+
+.social-sidebar .share-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.social-icons-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .share-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* Force white color as requested */
+  transition: all 0.3s;
 }
 
 .share-icon:hover {
-    background: #ffffff;
-    color: var(--primary-color);
-    transform: translateY(-2px);
+  color: var(--blog-purple);
+  transform: scale(1.1);
 }
 
-/* Main Content Layout */
+/* ============================================
+   MAIN CONTENT AREA - Matches MEP main-content
+   ============================================ */
 .blog-detail-main {
-    padding-bottom: 80px;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 5;
+  margin-top: 10vh;
+  padding-top: 160px; /* Spacing to clear hanging image in flow */
+  padding-bottom: 60px;
 }
 
-.container-narrow {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
+.container-wide {
+  /* max-width: 1400px; */
+  margin: 0 auto;
+  padding: 0 40px;
 }
 
-/* Featured Image */
-.featured-image-wrapper {
-    margin-top: -60px;
-    /* Overlap the hero slightly */
-    margin-bottom: 60px;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    position: relative;
-    z-index: 10;
-}
-
-.featured-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Typography & Content */
+/* Blog Content Styling */
 .blog-article-content {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: #374151;
-    /* Gray-700 */
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #374151;
 }
 
 .blog-article-content p {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
-.blog-article-content h2.article-heading {
-    font-size: 1.875rem;
-    font-weight: 700;
-    color: #111827;
-    /* Gray-900 */
-    margin-top: 48px;
-    margin-bottom: 24px;
+.blog-article-content .article-heading {
+  font-size: 28px;
+  font-weight: 600;
+  color: #111827;
+  margin-top: 50px;
+  margin-bottom: 24px;
 }
 
-.intro-text {
-    font-size: 1.25rem;
-    color: #1F2937;
-    /* Gray-800 */
-    font-weight: 500;
-}
-
+/* Styled Lists */
 .styled-list {
-    list-style: none;
-    padding: 0;
-    margin: 32px 0;
+  list-style: none;
+  padding: 0;
+  margin: 30px 0;
 }
 
-.styled-list li {
-    margin-bottom: 24px;
-    padding-left: 0;
+.styled-list > li {
+  margin-bottom: 12px;
 }
 
 .styled-list strong {
-    display: block;
-    color: #111827;
-    font-size: 1.125rem;
-    margin-bottom: 8px;
+  font-weight: 600;
+  color: #111827;
 }
 
-/* Green CTA Box */
-.green-cta-box {
-    background-color: #064E3B;
-    /* Dark Emerald/Green */
-    border-radius: 16px;
-    padding: 40px;
-    margin: 60px 0;
-    text-align: center;
-    color: #ffffff;
-    position: relative;
-    overflow: hidden;
+.sub-list {
+  list-style: none;
+  padding-left: 0;
 }
 
-.cta-title {
-    font-size: 1.5rem;
-    margin-bottom: 24px;
-    font-weight: 600;
-    color: #ffffff;
+.sub-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 8px;
 }
 
-.cta-form-row {
-    display: flex;
-    gap: 12px;
-    max-width: 480px;
-    margin: 0 auto;
+.sub-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--blog-purple);
+  font-weight: bold;
 }
 
-.cta-input {
-    flex: 1;
-    padding: 12px 16px;
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    font-family: inherit;
+/* Newsletter CTA Box */
+.newsletter-cta-box {
+  max-width: 900px !important;
+  margin: 60px auto !important;
+  background: linear-gradient(135deg, #1a4d3a 0%, #0f3a2a 100%) !important;
+  border-radius: 16px !important;
+  padding: 48px 60px !important;
+  text-align: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
-.cta-input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+.newsletter-cta-title {
+  font-size: 32px !important;
+  font-weight: 400 !important;
+  color: #ffffff !important;
+  margin-bottom: 32px !important;
+  line-height: 1.3 !important;
 }
 
-.cta-input:focus {
-    outline: none;
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
+.newsletter-cta-form {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px !important;
+  max-width: 600px !important;
+  margin: 0 auto !important;
 }
 
-.cta-submit-btn {
-    padding: 12px 24px;
-    border-radius: 50px;
-    background: #8B5CF6;
-    /* Purple button */
-    color: #ffffff;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
+.newsletter-cta-input {
+  flex: 1 !important;
+  padding: 16px 24px !important;
+  border-radius: 50px !important;
+  border: none !important;
+  background-color: #ffffff !important;
+  color: #374151 !important;
+  font-size: 15px !important;
+  outline: none !important;
+}
+.newsletter-cta-input::placeholder {
+  color: #9ca3af !important;
 }
 
-.cta-submit-btn:hover {
-    background: #7C3AED;
+.newsletter-cta-btn {
+  padding: 16px 32px !important;
+  border-radius: 50px !important;
+  border: none !important;
+  background-color: #7628a3 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  white-space: nowrap !important;
 }
 
-/* Blockquote */
+.newsletter-cta-btn:hover {
+  background-color: #5d1f82 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Blockquote - Refined Sarah Kerr styling */
 .blog-quote {
-    margin: 60px 0;
-    padding-left: 32px;
-    border-left: 4px solid #8B5CF6;
-    /* Purple accent */
-    position: relative;
+  margin: 80px 0;
+  padding: 10px 0 10px 40px; /* Padding for the line spacing */
+  border-left: 3px solid #e5e7eb; /* Premium gray border */
 }
 
 .quote-icon {
-    font-size: 4rem;
-    color: #8B5CF6;
-    line-height: 1;
-    opacity: 0.2;
-    position: absolute;
-    top: -20px;
-    left: 20px;
+  color: var(--blog-purple);
+  margin-bottom: 24px;
+  display: block;
 }
 
 .quote-text {
-    font-size: 1.25rem;
-    font-weight: 600;
-    font-style: italic;
-    color: #111827;
-    margin-bottom: 24px;
-    position: relative;
-    z-index: 1;
+  font-size: 26px;
+  line-height: 1.4;
+  color: #111827;
+  margin-bottom: 32px;
+  font-weight: 500;
 }
 
 .quote-author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .quote-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .quote-author-details {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .author-name {
-    font-weight: 700;
-    color: #111827;
-    font-size: 0.875rem;
+  font-weight: 700;
+  font-size: 18px;
+  color: #111827;
 }
 
 .author-role {
-    font-size: 0.75rem;
-    color: #6B7280;
+  font-size: 14px;
+  color: #6b7280;
 }
 
-/* Content Image */
-.content-image-wrapper {
-    margin: 40px 0;
-    border-radius: 16px;
-    overflow: hidden;
-}
-
-.content-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Footer Divider */
-.article-footer-divider {
-    margin-top: 80px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    color: #9CA3AF;
-    font-size: 0.875rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.divider-line {
-    flex: 1;
-    height: 1px;
-    background: #E5E7EB;
-}
-
-/* Related Posts */
+/* ============================================
+   RELATED POSTS SECTION - Redesign
+   ============================================ */
 .related-posts-section {
-    background: #F9FAFB;
-    padding: 80px 0;
+  padding: 100px 0;
+  background-color: #ffffff;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .blog-detail-title {
-        font-size: 2rem;
-    }
-
-    .blog-detail-meta {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .cta-form-row {
-        flex-direction: column;
-    }
-
-    .cta-submit-btn {
-        width: 100%;
-    }
-
-    .featured-image-wrapper {
-        margin-top: -30px;
-    }
+.related-header {
+  margin-bottom: 24px;
+  text-align: left; /* Enforce left alignment */
 }
 
-/* 
-   Override styles for the Related Posts Carousel 
-   Restores card styling that is stripped by blogs.css !important rules
-*/
-.blogs-carousel .blog-card {
-    background-color: #ffffff !important;
-    border: 1px solid #E5E7EB !important;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
-    overflow: hidden;
-    /* Ensure flex properties for carousel layout are respected */
-    flex: 0 0 calc((100% - 2 * 32px) / 3);
-    /* Fallback/match styles.css */
-    min-width: 300px;
+.related-separator {
+  height: 1px;
+  background-color: #e5e7eb;
+  margin-bottom: 60px;
+  width: 100%;
 }
 
-/* Responsive adjustments for the carousel overrides */
-@media (max-width: 1024px) {
-    .blogs-carousel .blog-card {
-        flex: 0 0 calc((100% - 32px) / 2);
-    }
+.related-posts-section .section-tag-pill {
+  margin-bottom: 0px;
 }
 
-@media (max-width: 768px) {
-    .blogs-carousel .blog-card {
-        flex: 0 0 100%;
-    }
+.related-posts-section .tag-dot {
+  background-color: var(--blog-purple);
 }
 
-.blogs-carousel .blog-card:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
-    transform: translateY(-8px);
+/* ============================================
+   RESPONSIVE DESIGN - Exact MEP Sync
+   ============================================ */
+@media screen and (max-width: 1024px) {
+  .blog-detail-title {
+    font-size: 48px;
+  }
+
+  .hero-hanging-image-container {
+    width: 65%;
+    top: 50%;
+  }
+
+  .blog-detail-main {
+    margin-top: 20vh;
+  }
 }
 
-.blogs-carousel .blog-image {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
+@media screen and (max-width: 768px) {
+  .blog-detail-hero-wrapper {
+    height: auto;
+    min-height: 80vh;
+  }
 
-/* Ensure controls are visible */
-.blogs-carousel-controls {
+  .blog-detail-hero {
+    height: 70vh;
+    min-height: 70vh;
+    max-height: 60vh;
+  }
+
+  .hero-hanging-image-container {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 85%;
+    max-width: 100%;
+    margin: -80px auto 40px;
     display: flex;
-    justify-content: flex-start;
-    gap: 12px;
-    margin-top: 32px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .social-sidebar {
+    position: relative;
+    right: auto;
+    top: auto;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    color: #4b5563;
+  }
+
+  .social-sidebar .share-label {
+    margin-bottom: 0;
+    margin-right: 12px;
+    color: #4b5563;
+  }
+
+  .social-sidebar .share-icon {
+    color: #4b5563;
+  }
+
+  .social-icons-stack {
+    flex-direction: row;
+  }
+
+  .blog-detail-main {
+    margin-top: 0;
+    padding-top: 40px;
+  }
+
+  .blog-detail-title {
+    font-size: 36px;
+  }
+
+  .newsletter-cta-box {
+    padding: 32px 24px !important;
+  }
+
+  .newsletter-cta-title {
+    font-size: 24px !important;
+  }
+
+  .newsletter-cta-form {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .newsletter-cta-input,
+  .newsletter-cta-btn {
+    width: 100% !important;
+    flex: none !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .blog-detail-title {
+    font-size: 28px;
+  }
+
+  .blog-detail-hero {
+    height: 60vh;
+    min-height: 60vh;
+    max-height: 60vh;
+  }
+
+  .hero-hanging-image-container {
+    width: 90%;
+    margin: -60px auto 30px;
+  }
+
+  .newsletter-cta-title {
+    font-size: 20px;
+  }
 }
