@@ -31,9 +31,8 @@
   align-items: center;
   justify-content: center;
   padding-top: 0;
-  background-color: var(
-    --blog-purple-dark
-  ); /* Base color to prevent light gaps */
+  background-color: var(--blog-purple-dark);
+  /* Base color to prevent light gaps */
 }
 
 .hero-bg {
@@ -49,7 +48,8 @@
 
 .hero-bg-img {
   width: 100%;
-  height: 120%; /* Increased to accommodate parallax scroll without gaps */
+  height: 120%;
+  /* Increased to accommodate parallax scroll without gaps */
   position: absolute;
   top: 0;
   left: 0;
@@ -63,11 +63,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(122, 31, 162, 0.8) 0%,
-    rgba(93, 31, 130, 0.95) 100%
-  );
+  background: linear-gradient(135deg,
+      rgba(122, 31, 162, 0.8) 0%,
+      rgba(93, 31, 130, 0.95) 100%);
   z-index: 3;
 }
 
@@ -80,13 +78,15 @@
   width: 100%;
   text-align: center;
   padding: 0 20px;
-  margin-top: -100px; /* Offset to center text better above hanging image */
+  margin-top: -100px;
+  /* Offset to center text better above hanging image */
 }
 
 /* Nav Positioning */
 .hero-top-nav {
   position: absolute;
-  top: -140px; /* Matches the content-to-header spacing */
+  top: -140px;
+  /* Matches the content-to-header spacing */
   left: 20px;
 }
 
@@ -167,7 +167,8 @@
   align-items: center;
   gap: 16px;
   position: absolute;
-  right: -80px; /* Standard sidebar spacing */
+  right: -80px;
+  /* Standard sidebar spacing */
   top: 40px;
   color: #ffffff;
 }
@@ -193,7 +194,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff; /* Force white color as requested */
+  color: #ffffff;
+  /* Force white color as requested */
   transition: all 0.3s;
 }
 
@@ -210,7 +212,8 @@
   position: relative;
   z-index: 5;
   margin-top: 10vh;
-  padding-top: 160px; /* Spacing to clear hanging image in flow */
+  padding-top: 160px;
+  /* Spacing to clear hanging image in flow */
   padding-bottom: 60px;
 }
 
@@ -248,7 +251,7 @@
   margin: 30px 0;
 }
 
-.styled-list > li {
+.styled-list>li {
   margin-bottom: 12px;
 }
 
@@ -315,6 +318,7 @@
   font-size: 15px !important;
   outline: none !important;
 }
+
 .newsletter-cta-input::placeholder {
   color: #9ca3af !important;
 }
@@ -340,8 +344,10 @@
 /* Blockquote - Refined Sarah Kerr styling */
 .blog-quote {
   margin: 80px 0;
-  padding: 10px 0 10px 40px; /* Padding for the line spacing */
-  border-left: 3px solid #e5e7eb; /* Premium gray border */
+  padding: 10px 0 10px 40px;
+  /* Padding for the line spacing */
+  border-left: 3px solid #e5e7eb;
+  /* Premium gray border */
 }
 
 .quote-icon {
@@ -388,6 +394,26 @@
   color: #6b7280;
 }
 
+/* Centered Content Image */
+.content-image-wrapper {
+  max-width: 900px;
+  margin: 60px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  /* Subtle shadow for depth */
+}
+
+.content-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
 /* ============================================
    RELATED POSTS SECTION - Redesign
    ============================================ */
@@ -398,7 +424,8 @@
 
 .related-header {
   margin-bottom: 24px;
-  text-align: left; /* Enforce left alignment */
+  text-align: left;
+  /* Enforce left alignment */
 }
 
 .related-separator {
