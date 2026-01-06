@@ -63,9 +63,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg,
-      rgba(122, 31, 162, 0.8) 0%,
-      rgba(93, 31, 130, 0.95) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(122, 31, 162, 0.8) 0%,
+    rgba(93, 31, 130, 0.95) 100%
+  );
   z-index: 3;
 }
 
@@ -251,7 +253,7 @@
   margin: 30px 0;
 }
 
-.styled-list>li {
+.styled-list > li {
   margin-bottom: 12px;
 }
 
@@ -281,7 +283,7 @@
 
 /* Newsletter CTA Box */
 .newsletter-cta-box {
-  max-width: 900px !important;
+  max-width: 700px !important;
   margin: 60px auto !important;
   background: linear-gradient(135deg, #1a4d3a 0%, #0f3a2a 100%) !important;
   border-radius: 16px !important;
@@ -396,7 +398,7 @@
 
 /* Centered Content Image */
 .content-image-wrapper {
-  max-width: 900px;
+  max-width: 700px;
   margin: 60px auto;
   border-radius: 16px;
   overflow: hidden;
