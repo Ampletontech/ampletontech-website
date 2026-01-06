@@ -258,13 +258,39 @@ img {
   box-shadow: 0 2px 4px rgba(118, 40, 163, 0.2);
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .header-cta:hover {
   background: var(--primary-dark);
   color: #ffffff;
-  box-shadow: 0 2px 6px rgba(118, 40, 163, 0.3);
-  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(118, 40, 163, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Glassy Shine Effect for Header CTA */
+.header-cta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.header-cta:hover::after {
+  left: 150%;
+  transition: 0.7s;
 }
 
 .header-cta span {
@@ -869,12 +895,38 @@ img {
   box-shadow: 0 2px 4px rgba(118, 40, 163, 0.2);
   width: auto;
   max-width: fit-content;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-portfolio:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(118, 40, 163, 0.3);
+  box-shadow: 0 6px 15px rgba(118, 40, 163, 0.4);
+}
+
+/* Glassy Shine Effect for Portfolio Button */
+.btn-portfolio::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.btn-portfolio:hover::after {
+  left: 150%;
+  transition: 0.7s;
 }
 
 .portfolio-carousel {
@@ -885,7 +937,7 @@ img {
   display: flex;
   overflow-x: auto;
   gap: var(--spacing-xl);
-  padding-bottom: 20px;
+  padding: 20px 0px;
   /* Space for scrollbar or shadow */
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
@@ -1216,7 +1268,7 @@ img {
   display: flex;
   overflow-x: auto;
   gap: var(--spacing-xl);
-  padding-bottom: 20px;
+  padding: 20px 0px;
   /* Space for scrollbar or shadow */
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
@@ -1722,11 +1774,38 @@ img {
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
 
 .newsletter-btn:hover {
   background: #f3f4f6;
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Glassy Shine Effect for Newsletter Button */
+.newsletter-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.newsletter-btn:hover::after {
+  left: 150%;
+  transition: 0.7s;
 }
 
 /* Footer */
@@ -2259,7 +2338,6 @@ img {
 
   /* Revert to grid for larger screens */
   @media screen and (min-width: 769px) {
-
     .portfolio-cards,
     .blogs-cards,
     .testimonials-cards {
@@ -2533,7 +2611,6 @@ img {
 
 /* Mobile Optimizations - Disable Heavy Effects */
 @media (max-width: 768px) {
-
   /* Disable parallax on mobile for better performance */
   .hero-bg-img {
     transform: none !important;
@@ -2589,9 +2666,11 @@ img {
   left: 0;
   width: 0%;
   height: 3px;
-  background: linear-gradient(90deg,
-      var(--primary-color),
-      var(--primary-light));
+  background: linear-gradient(
+    90deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
   z-index: 9999;
   transition: width 0.1s ease-out;
   box-shadow: 0 0 10px rgba(118, 40, 163, 0.5);
@@ -2662,7 +2741,6 @@ img {
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-
   .hero-bg-img,
   .service-card,
   .portfolio-card,
@@ -2731,7 +2809,6 @@ img {
 
 /* Desktop Hover Effects */
 @media (hover: hover) and (min-width: 768px) {
-
   /* Exception for the specific hovered card */
   .jobs-grid .job-card:hover {
     opacity: 1;
@@ -2981,7 +3058,6 @@ img {
    ACCESSIBILITY OVERRIDES
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-
   .job-card,
   .location-card,
   .contact-form,
