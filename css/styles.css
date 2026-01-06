@@ -719,19 +719,19 @@ img {
   width: 64px;
   height: 64px;
   margin: 0 0 var(--spacing-lg) 0;
-  background-color: rgba(118, 40, 163, 0.1);
-  border-radius: 12px;
+  background-color: transparent;
+  border: 3px solid #f3f4f6;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.service-icon svg {
+.service-icon img {
   width: 32px;
   height: 32px;
-  stroke: var(--primary-color);
-  fill: none;
+  object-fit: contain;
 }
 
 .service-title {
@@ -2259,6 +2259,7 @@ img {
 
   /* Revert to grid for larger screens */
   @media screen and (min-width: 769px) {
+
     .portfolio-cards,
     .blogs-cards,
     .testimonials-cards {
@@ -2532,6 +2533,7 @@ img {
 
 /* Mobile Optimizations - Disable Heavy Effects */
 @media (max-width: 768px) {
+
   /* Disable parallax on mobile for better performance */
   .hero-bg-img {
     transform: none !important;
@@ -2587,11 +2589,9 @@ img {
   left: 0;
   width: 0%;
   height: 3px;
-  background: linear-gradient(
-    90deg,
-    var(--primary-color),
-    var(--primary-light)
-  );
+  background: linear-gradient(90deg,
+      var(--primary-color),
+      var(--primary-light));
   z-index: 9999;
   transition: width 0.1s ease-out;
   box-shadow: 0 0 10px rgba(118, 40, 163, 0.5);
@@ -2662,6 +2662,7 @@ img {
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+
   .hero-bg-img,
   .service-card,
   .portfolio-card,
@@ -2730,6 +2731,7 @@ img {
 
 /* Desktop Hover Effects */
 @media (hover: hover) and (min-width: 768px) {
+
   /* Exception for the specific hovered card */
   .jobs-grid .job-card:hover {
     opacity: 1;
@@ -2979,6 +2981,7 @@ img {
    ACCESSIBILITY OVERRIDES
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
+
   .job-card,
   .location-card,
   .contact-form,
