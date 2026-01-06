@@ -258,13 +258,39 @@ img {
   box-shadow: 0 2px 4px rgba(118, 40, 163, 0.2);
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .header-cta:hover {
   background: var(--primary-dark);
   color: #ffffff;
-  box-shadow: 0 2px 6px rgba(118, 40, 163, 0.3);
-  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(118, 40, 163, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Glassy Shine Effect for Header CTA */
+.header-cta::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.header-cta:hover::after {
+  left: 150%;
+  transition: 0.7s;
 }
 
 .header-cta span {
@@ -719,19 +745,19 @@ img {
   width: 64px;
   height: 64px;
   margin: 0 0 var(--spacing-lg) 0;
-  background-color: rgba(118, 40, 163, 0.1);
-  border-radius: 12px;
+  background-color: transparent;
+  border: 3px solid #f3f4f6;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
 
-.service-icon svg {
+.service-icon img {
   width: 32px;
   height: 32px;
-  stroke: var(--primary-color);
-  fill: none;
+  object-fit: contain;
 }
 
 .service-title {
@@ -869,12 +895,38 @@ img {
   box-shadow: 0 2px 4px rgba(118, 40, 163, 0.2);
   width: auto;
   max-width: fit-content;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-portfolio:hover {
   background: var(--primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(118, 40, 163, 0.3);
+  box-shadow: 0 6px 15px rgba(118, 40, 163, 0.4);
+}
+
+/* Glassy Shine Effect for Portfolio Button */
+.btn-portfolio::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.btn-portfolio:hover::after {
+  left: 150%;
+  transition: 0.7s;
 }
 
 .portfolio-carousel {
@@ -885,7 +937,7 @@ img {
   display: flex;
   overflow-x: auto;
   gap: var(--spacing-xl);
-  padding-bottom: 20px;
+  padding: 20px 0px;
   /* Space for scrollbar or shadow */
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
@@ -1216,7 +1268,7 @@ img {
   display: flex;
   overflow-x: auto;
   gap: var(--spacing-xl);
-  padding-bottom: 20px;
+  padding: 20px 0px;
   /* Space for scrollbar or shadow */
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
@@ -1722,11 +1774,38 @@ img {
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
 
 .newsletter-btn:hover {
   background: #f3f4f6;
-  transform: scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Glassy Shine Effect for Newsletter Button */
+.newsletter-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.newsletter-btn:hover::after {
+  left: 150%;
+  transition: 0.7s;
 }
 
 /* Footer */
