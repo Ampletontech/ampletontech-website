@@ -2297,11 +2297,22 @@ img {
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain; /* Prevent chain scrolling/bounce locks */
     gap: var(--spacing-xl);
     padding: 10px 0;
     /* Hide scrollbar for cleaner look */
     scrollbar-width: none;
     -ms-overflow-style: none;
+  }
+
+  /* Fix for iOS Scroll Snap Jitter (Rubber-banding lock) */
+  .portfolio-cards::after,
+  .blogs-cards::after,
+  .testimonials-cards::after {
+    content: "";
+    min-width: 1px;
+    flex-shrink: 0;
+    pointer-events: none;
   }
 
   .why-choose-grid {
