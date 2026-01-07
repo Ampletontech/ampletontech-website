@@ -936,22 +936,35 @@ img {
 .portfolio-cards {
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   gap: var(--spacing-xl);
   padding: 20px 0px;
   /* Space for scrollbar or shadow */
   scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity; /* Changed from mandatory to proximity for iOS */
   /* Enable scroll snapping */
+  overscroll-behavior-x: contain; /* Prevent bounce conflicts */
+  -webkit-overflow-scrolling: touch; /* Smooth iOS scrolling */
   /* Hide scrollbar for cleaner look */
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
+  transform: translateZ(0); /* Force GPU rendering */
+  will-change: scroll-position;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .portfolio-cards::-webkit-scrollbar {
   display: none;
+}
+
+/* iOS Jitter Fix: Add breathing room at the end */
+.portfolio-cards::after {
+  content: "";
+  flex: 0 0 20px;
+  min-width: 20px;
+  height: 1px;
 }
 
 .portfolio-card {
