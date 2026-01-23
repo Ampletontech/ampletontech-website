@@ -1053,7 +1053,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         fetch(GOOGLE_SCRIPT_URL, {
           method: 'POST',
-          body: formData
+          body: formData,
+          mode: 'no-cors' // Important: This prevents CORS errors but makes the response opaque
         })
           .then(response => {
             // Google Apps Script usually returns a redirect or JSON. 
