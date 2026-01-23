@@ -3,7 +3,7 @@ name: Deploy to Vercel (Development)
 on:
   push:
     branches:
-      - dev1 
+      - main 
   workflow_dispatch:
 
 jobs:
@@ -12,4 +12,4 @@ jobs:
 
     steps:
       - name: Trigger Vercel Deployment
-        run: curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_EvZTtvz6yMiNHdWmSjEcz5S8c5nv/2fHNIMBAM4"
+        run: curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_EvZTtvz6yMiNHdWmSjEcz5S8c5nv/gw5Uj4pgNA"

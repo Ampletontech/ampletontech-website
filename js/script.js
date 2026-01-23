@@ -3,6 +3,9 @@
 // Interactive Features
 // ============================================
 
+// Google Apps Script Web App URL for Contact Form
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwrYZNrITjJ3urWJXuI5zOvnzp1jgi-g1BbOQy_XyUHTJqkgI28Y1l7d4Ent-7M8tGTmg/exec';
+
 document.addEventListener("DOMContentLoaded", function () {
   // Mobile Menu Toggle with Shutter Animation
   const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
@@ -1028,31 +1031,61 @@ document.addEventListener("DOMContentLoaded", function () {
       checkValue();
     });
 
-    // Submit Button Morph
-    const form = document.querySelector(".contact-form");
+    // Submit Button Logic (Real Google Sheet Submission)
+    const form = document.getElementById("contactForm"); // Used ID we added
     if (form) {
       form.addEventListener("submit", (e) => {
         e.preventDefault();
-        const btn = form.querySelector(".submit-btn");
-        if (btn) {
-          const originalText = btn.innerHTML; // Save content including SVG
-          btn.classList.add("is-loading");
 
-          // Simulate API call
-          setTimeout(() => {
-            btn.classList.remove("is-loading");
-            btn.innerHTML = `<svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Sent!`;
-
-            setTimeout(() => {
-              btn.innerHTML = originalText;
-              form.reset();
-              // Reset floating labels
-              document
-                .querySelectorAll(".form-group")
-                .forEach((g) => g.classList.remove("has-value"));
-            }, 2000);
-          }, 2000);
+        // Validation check (HTML5 validation usually catches this, but just in case)
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
         }
+
+        const btn = form.querySelector(".submit-btn");
+        const originalText = btn ? btn.innerHTML : "Submit";
+
+        if (btn) btn.classList.add("is-loading");
+
+        // Use FormData to capture all fields (fullName, email, contactNumber, service)
+        const formData = new FormData(form);
+
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          body: formData
+        })
+          .then(response => {
+            // Google Apps Script usually returns a redirect or JSON. 
+            // If CORS is strict, we might not see the JSON, but it generally resolves if successful.
+            console.log("Form submitted successfully");
+
+            if (btn) {
+              btn.classList.remove("is-loading");
+              // Success State
+              btn.innerHTML = `<svg class="checkmark-svg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Sent!`;
+
+              setTimeout(() => {
+                btn.innerHTML = originalText;
+                form.reset();
+                // Reset floating labels
+                document.querySelectorAll(".form-group").forEach((g) => g.classList.remove("has-value"));
+              }, 3000);
+            }
+            // Optional: Alert user if button animation isn't enough
+            // alert("Thank you! Your message has been sent.");
+          })
+          .catch(error => {
+            console.error('Error!', error.message);
+            if (btn) {
+              btn.classList.remove("is-loading");
+              btn.innerHTML = "Error!";
+              setTimeout(() => {
+                btn.innerHTML = originalText;
+              }, 3000);
+            }
+            alert("Something went wrong. Please try again or contact us directly by phone.");
+          });
       });
     }
   }
