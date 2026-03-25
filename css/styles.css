@@ -718,7 +718,7 @@ img {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--spacing-xl);
   margin-top: var(--spacing-3xl);
 }
@@ -758,6 +758,13 @@ img {
   width: 32px;
   height: 32px;
   object-fit: contain;
+}
+
+.service-icon-svg {
+  width: 32px;
+  height: 32px;
+  color: var(--primary-color);
+  flex-shrink: 0;
 }
 
 .service-title {
