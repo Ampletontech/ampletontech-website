@@ -310,9 +310,10 @@
 
 .leadership-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: minmax(280px, 420px) 1fr;
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-2xl);
+  align-items: stretch;
 }
 
 .leadership-card {
@@ -360,6 +361,29 @@
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.9);
   font-weight: 400;
+}
+
+.leadership-bio {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 28px 32px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+  align-self: stretch;
+}
+
+.leadership-bio-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 14px;
+}
+
+.leadership-bio-text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #374151;
+  margin-bottom: 0;
 }
 
 /* Carousel Controls - Matching Index Page */
@@ -509,7 +533,7 @@
   }
 
   .leadership-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 
@@ -522,6 +546,10 @@
 
   .leadership-card {
     height: 350px;
+  }
+
+  .leadership-bio {
+    padding: 22px;
   }
 
   .leadership-header-row {
