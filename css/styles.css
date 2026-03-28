@@ -2693,6 +2693,18 @@ img {
     opacity: 1;
     transform: translateY(-50%) translateX(2px);
   }
+
+  /* Flat Services menu (no nested submenus) */
+  .dropdown-menu.dropdown-menu--flat {
+    min-width: 260px;
+    padding: 10px 0;
+  }
+
+  .dropdown-menu.dropdown-menu--flat .dropdown-item.active {
+    color: var(--primary-color);
+    background-color: rgba(118, 40, 163, 0.08);
+    font-weight: 600;
+  }
 }
 
 /* ============================================
