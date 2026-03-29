@@ -1451,7 +1451,7 @@ img {
 
 /* Testimonials Section */
 .testimonials-section {
-  background-image: url("../assets/images/testimonials_bg.jpg");
+  background-image: url("../assets/images/testimonials_bg.webp");
   background-size: cover;
   background-position: center;
   padding: var(--spacing-5xl) 0;
