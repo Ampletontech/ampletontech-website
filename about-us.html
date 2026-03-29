@@ -28,14 +28,31 @@
               <a href="#" class="nav-link active">About Us</a>
               <div class="nav-item dropdown">
                 <span class="nav-link dropdown-toggle">Services</span>
-                <div class="dropdown-menu dropdown-menu--flat">
-                  <a href="services/electrical-consultants.html" class="dropdown-item">Electrical Consultants</a>
-                  <a href="services/solar-epc.html" class="dropdown-item">Solar EPC</a>
-                  <a href="services/electrical-contractors.html" class="dropdown-item">Electrical Contractors</a>
-                  <a href="services/mep-services.html" class="dropdown-item">MEP Services</a>
-                  <a href="services/EV_Eco_System/ev-fast-charges.html" class="dropdown-item">EV Fast Charging</a>
-                  <a href="services/EV_Eco_System/battery-solutions.html" class="dropdown-item">Battery Solutions</a>
-                  <a href="services/EV_Eco_System/index.html" class="dropdown-item">About EV Charging</a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-item-wrapper">
+                    <a href="services/EV_Eco_System/index.html" class="dropdown-item">EV Eco System</a>
+                    <div class="sub-dropdown-menu">
+                      <a href="services/EV_Eco_System/ev-fast-charges.html" class="sub-dropdown-item">EV Fast Charges</a>
+                      <a href="services/EV_Eco_System/battery-solutions.html" class="sub-dropdown-item">Battery Solutions</a>
+                    </div>
+                  </div>
+                  <div class="dropdown-item-wrapper">
+                    <a href="services/Solar_Power_Solution/index.html" class="dropdown-item">Solar Power Solution</a>
+                    <div class="sub-dropdown-menu">
+                      <a href="services/Solar_Power_Solution/index.html#residential" class="sub-dropdown-item">Residential Solar</a>
+                      <a href="services/Solar_Power_Solution/index.html#commercial" class="sub-dropdown-item">Commercial Solar</a>
+                      <a href="services/Solar_Power_Solution/index.html#industrial" class="sub-dropdown-item">Industrial Solar</a>
+                    </div>
+                  </div>
+                  <div class="dropdown-item-wrapper">
+                    <a href="services/Engineering_consultants.html/index.html" class="dropdown-item">Engineering Consultants</a>
+                    <div class="sub-dropdown-menu">
+                      <a href="services/electrical-consultants.html" class="sub-dropdown-item">Electrical Solutions</a>
+                      <a href="services/mep-services.html" class="sub-dropdown-item">MEP</a>
+                      <a href="services/Engineering_consultants.html/index.html#bim" class="sub-dropdown-item">BIM</a>
+                    </div>
+                  </div>
+                  <a href="services/Amplezone/index.html" class="dropdown-item">Amplezone</a>
                 </div>
               </div>
               <a href="projects.html" class="nav-link">Projects</a>
@@ -44,9 +61,8 @@
               <a href="contact-us.html" class="nav-link">Contact Us</a>
             </nav>
           </div>
-          <a href="contact-us.html" class="header-cta">
-            Contact Us
-            <span>↗</span>
+          <a href="assets/files/Ampleton-Brochure.pdf" class="header-cta" target="_blank">
+            Our Brochure
           </a>
           <button class="mobile-menu-toggle" aria-label="Toggle menu">
             <span></span>
@@ -369,15 +385,17 @@
           </div>
         </div>
         <div class="leadership-grid">
-          <div class="leadership-card">
-            <img
-              src="assets/images/Er. Shaik Mahaboob Subhan.JPG"
-              alt="Er. Shaik Mahaboob Subhan"
-              class="leader-img"
-            />
-            <div class="leader-info-overlay">
-              <h3 class="leader-name">Er. Shaik Mahaboob Subhan</h3>
-              <p class="leader-role">Founder &amp; CMD — M.Tech, Power Systems</p>
+          <div class="leadership-image-col">
+            <div class="leadership-card">
+              <img
+                src="assets/images/Er. Shaik Mahaboob Subhan.JPG"
+                alt="Er. Shaik Mahaboob Subhan"
+                class="leader-img"
+              />
+              <div class="leader-info-overlay">
+                <h3 class="leader-name">Er. Shaik Mahaboob Subhan</h3>
+                <p class="leader-role">Founder &amp; CMD — M.Tech, Power Systems</p>
+              </div>
             </div>
           </div>
           <div class="leadership-bio">
@@ -398,7 +416,7 @@
               and innovative energy solutions.
             </p>
           </div>
-        </div>
+        </div><!-- end leadership-grid -->
         <!-- <div class="leadership-controls">
         <button class="nav-arrow-btn prev" aria-label="Previous">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -464,7 +482,7 @@
             <nav class="footer-nav">
               <a href="index.html" class="footer-link">Home</a>
               <a href="#" class="footer-link active">About Us</a>
-              <a href="" class="footer-link">Services</a>
+              <a href="index.html#services" class="footer-link">Services</a>
               <a href="projects.html" class="footer-link">Projects</a>
               <a href="blogs.html" class="footer-link">Blogs</a>
               <a href="career.html" class="footer-link">Careers</a>

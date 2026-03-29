@@ -38,9 +38,26 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Handle sub-dropdown toggle in mobile menu
+    const dropdownItemWrappers = navMenu.querySelectorAll(".dropdown-item-wrapper");
+    dropdownItemWrappers.forEach((wrapper) => {
+      const wrapperLink = wrapper.querySelector(".dropdown-item");
+      if (wrapperLink && wrapper.querySelector(".sub-dropdown-menu")) {
+        wrapperLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          const isActive = wrapper.classList.contains("active");
+          // Close other open sub-dropdowns
+          dropdownItemWrappers.forEach((w) => w.classList.remove("active"));
+          if (!isActive) {
+            wrapper.classList.add("active");
+          }
+        });
+      }
+    });
+
     // Close menu when clicking on a regular nav link (not dropdown toggle)
     const mobileNavLinks = navMenu.querySelectorAll(
-      ".nav-link:not(.dropdown-toggle), .dropdown-item"
+      ".nav-link:not(.dropdown-toggle), .sub-dropdown-item"
     );
     mobileNavLinks.forEach((link) => {
       link.addEventListener("click", function () {
@@ -50,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         dropdownItems.forEach((dropdown) => {
           dropdown.classList.remove("active");
         });
+        dropdownItemWrappers.forEach((w) => w.classList.remove("active"));
       });
     });
   }

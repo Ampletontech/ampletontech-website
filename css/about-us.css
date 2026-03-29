@@ -310,10 +310,14 @@
 
 .leadership-grid {
   display: grid;
-  grid-template-columns: minmax(280px, 420px) 1fr;
-  gap: var(--spacing-xl);
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   margin-bottom: var(--spacing-2xl);
-  align-items: stretch;
+  align-items: center;
+}
+
+.leadership-image-col {
+  padding-right: var(--spacing-xl);
 }
 
 .leadership-card {
@@ -364,12 +368,10 @@
 }
 
 .leadership-bio {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 28px 32px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
-  align-self: stretch;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .leadership-bio-title {
@@ -535,6 +537,10 @@
   .leadership-grid {
     grid-template-columns: 1fr;
   }
+
+  .leadership-image-col {
+    padding-right: 0;
+  }
 }
 
 /* Additional responsive improvements for mobile */
@@ -544,12 +550,16 @@
     gap: var(--spacing-lg);
   }
 
+  .leadership-image-col {
+    padding-right: 0;
+  }
+
   .leadership-card {
     height: 350px;
   }
 
   .leadership-bio {
-    padding: 22px;
+    padding: 0;
   }
 
   .leadership-header-row {
