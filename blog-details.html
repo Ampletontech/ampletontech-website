@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/blogs.css" />
     <link rel="stylesheet" href="css/blog-details.css" />
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
   </head>
 
   <body>
@@ -28,22 +29,30 @@
               <div class="nav-item dropdown">
                 <span class="nav-link dropdown-toggle">Services</span>
                 <div class="dropdown-menu">
-                  <a href="services/mep-services.html" class="dropdown-item"
-                    >MEP Services</a
-                  >
-                  <a href="services/solar-epc.html" class="dropdown-item"
-                    >Solar EPC</a
-                  >
-                  <a
-                    href="services/electrical-contractors.html"
-                    class="dropdown-item"
-                    >Electrical Contractors</a
-                  >
-                  <a
-                    href="services/electrical-consultants.html"
-                    class="dropdown-item"
-                    >Electrical Consultants</a
-                  >
+                  <div class="dropdown-item-wrapper">
+                    <a href="services/EV_Eco_System/index.html" class="dropdown-item">EV Eco System</a>
+                    <div class="sub-dropdown-menu">
+                      <a href="services/EV_Eco_System/ev-fast-charges.html" class="sub-dropdown-item">EV Fast Charges</a>
+                      <a href="services/EV_Eco_System/battery-solutions.html" class="sub-dropdown-item">Battery Solutions</a>
+                    </div>
+                  </div>
+                  <div class="dropdown-item-wrapper">
+                    <a href="services/Solar_Power_Solution/index.html" class="dropdown-item">Solar Power Solution</a>
+                    <div class="sub-dropdown-menu">
+                      <a href="services/Solar_Power_Solution/residential_solar.html" class="sub-dropdown-item">Residential Solar</a>
+                      <a href="services/Solar_Power_Solution/commercial_solar.html" class="sub-dropdown-item">Commercial Solar</a>
+                      <a href="services/Solar_Power_Solution/industrial_solar.html" class="sub-dropdown-item">Industrial Solar</a>
+                    </div>
+                  </div>
+                  <div class="dropdown-item-wrapper">
+                    <a href="services/Engineering_consultants.html/index.html" class="dropdown-item">Engineering Consultants</a>
+                    <div class="sub-dropdown-menu">
+                      <a href="services/electrical-consultants.html" class="sub-dropdown-item">Electrical Solutions</a>
+                      <a href="services/mep-services.html" class="sub-dropdown-item">MEP</a>
+                      <a href="services/Engineering_consultants.html/bim.html" class="sub-dropdown-item">BIM</a>
+                    </div>
+                  </div>
+                  <!-- <a href="services/Amplezone/index.html" class="dropdown-item">Amplezone</a> -->
                 </div>
               </div>
               <a href="projects.html" class="nav-link">Projects</a>
@@ -52,9 +61,8 @@
               <a href="contact-us.html" class="nav-link">Contact Us</a>
             </nav>
           </div>
-          <a href="contact-us.html" class="header-cta">
-            Contact Us
-            <span>↗</span>
+          <a href="assets/files/Ampleton-Brochure.pdf" class="header-cta" target="_blank">
+            Our Brochure
           </a>
           <button class="mobile-menu-toggle" aria-label="Toggle menu">
             <span></span>
@@ -93,13 +101,13 @@
           </a>
         </div> -->
           <div class="hero-center-content">
-            <div class="category-pill">Solar Power</div>
-            <h1 class="blog-detail-title">
+            <div class="category-pill" id="blog-category-pill">Solar Power</div>
+            <h1 class="blog-detail-title" id="blog-detail-title">
               Harnessing the Power of the Sun: Exploring the World of Solar
               Energy
             </h1>
             <div class="blog-detail-meta">
-              <span class="meta-text"
+              <span class="meta-text" id="blog-meta-text"
                 >9 min read &nbsp;•&nbsp; December 11, 2025</span
               >
             </div>
@@ -111,6 +119,7 @@
       <div class="hero-hanging-image-container">
         <div class="hanging-image-wrapper">
           <img
+            id="blog-hero-image"
             src="assets/images/harnessing.jpg"
             alt="Solar Panels"
             class="hanging-img"
@@ -195,7 +204,7 @@
     <!-- Main Content Area -->
     <main class="blog-detail-main">
       <div class="container container-wide">
-        <div class="blog-article-content">
+        <div class="blog-article-content" id="blog-intro-content">
           <p>
             In a world increasingly concerned with environmental sustainability
             and the search for renewable energy sources, solar power has emerged
@@ -321,7 +330,7 @@
           />
         </div>
 
-        <div class="blog-article-content">
+        <div class="blog-article-content" id="blog-conclusion-content">
           <h2 class="article-heading">The Future of Solar Energy</h2>
           <p>
             As technology advances, the potential for solar energy continues to
@@ -489,7 +498,7 @@
           <div class="newsletter-content">
             <h3 class="newsletter-title">
               Stay Updated With Latest <br />
-              Energy Insights & Offers
+              Solar, EV &amp; Energy Insights &amp; Offers
             </h3>
           </div>
           <div class="newsletter-form">
@@ -531,7 +540,7 @@
             <nav class="footer-nav">
               <a href="index.html" class="footer-link">Home</a>
               <a href="about-us.html" class="footer-link">About Us</a>
-              <a href="" class="footer-link">Services</a>
+              <a href="index.html#services" class="footer-link">Services</a>
               <a href="projects.html" class="footer-link">Projects</a>
               <a href="blogs.html" class="footer-link">Blogs</a>
               <a href="career.html" class="footer-link">Careers</a>
@@ -539,10 +548,16 @@
             </nav>
             <div class="footer-address">
               <p>
-                Ground Floor, Plot No.13, Survey 64/2, Software Units Layout,
-                Madhapur, HITEC City, Hyderabad – 500081, Telangana, India.
+                Head Office: 2nd floor, Ucon Plaza, Park Road, Kurnool, Andhra
+                Pradesh - 518001.
               </p>
-              <p class="footer-phone">+91 77999 95084, 1800 425 0222.</p>
+              <p>
+                Corporate Office: First Floor Boss Towers, Street No. 2,
+                Patrika Nagar, Madhapur, Hyderabad, Telangana – 500081
+              </p>
+              <p class="footer-phone">
+                Number: +91 77 9999 5084, 1800 425 0222
+              </p>
             </div>
           </div>
         </div>
@@ -604,6 +619,172 @@
       </div>
     </footer>
 
+    <script>
+      (function () {
+        const posts = {
+          "mep-design-to-maintenance": {
+            title:
+              "Ampleton's End-to-End MEP Services: From Design to Maintenance",
+            category: "MEP Services",
+            meta: "8 min read \u2022 March 27, 2026",
+            image: "assets/images/building.jpg",
+            imageAlt: "MEP Services",
+            introParagraphs: [
+              "We don't just put things in place we take care of everything. Ampleton provides full MEP services from planning and designing systems to installing and maintaining them.",
+              "Our skilled project managers make sure that everything goes smoothly, is delivered on schedule and stays under budget.",
+              "After we take over the system, we keep an eye on it, service it regularly and give timely help. It's a full bundle that will last a long time and give them peace of mind.",
+            ],
+            heading: "What makes our MEP model dependable",
+            points: [
+              "End-to-end delivery from design to maintenance under one team.",
+              "Project execution focused on timeline, quality, and cost control.",
+              "Regular monitoring and service support for long-term reliability.",
+            ],
+            conclusion: [
+              "Ampleton's integrated MEP approach ensures your systems are designed right, installed right, and supported right through their lifecycle.",
+              "With one accountable partner and strong execution, clients gain lasting performance and operational peace of mind.",
+            ],
+          },
+          "electrical-contractors-reliable-execution": {
+            title:
+              "Electrical Contractors- Reliable Execution on Every Project",
+            category: "Electrical Contracting",
+            meta: "9 min read \u2022 March 27, 2026",
+            image: "assets/images/power-distribution.jpg",
+            imageAlt: "Electrical Contractors",
+            introParagraphs: [
+              "Great plans mean nothing without great execution. As experienced Electrical Contractors, Ampleton takes full responsibility for the installation, testing and commissioning of electrical systems across commercial, industrial, and institutional projects.",
+              "Our skilled workforce, backed by strong project management, ensures that every wire, panel and connection meets the highest standards of quality and safety.",
+              "We work efficiently, minimizing downtime and disruption so your project stays on schedule and on budget.",
+            ],
+            heading: "What sets our electrical contracting apart",
+            points: [
+              "Experienced and certified electricians and engineers.",
+              "Strict adherence to safety standards and regulations.",
+              "Transparent project timelines and cost estimates.",
+              "Proven track record across multiple sectors.",
+              "Pan-India operational capability.",
+            ],
+            conclusion: [
+              "From first cable pull to final commissioning, Ampleton delivers dependable electrical execution with safety and quality at the core.",
+              "Our teams combine technical depth and project discipline to keep every installation smooth, compliant, and predictable.",
+            ],
+          },
+          "electrical-consultancy-expert-advice": {
+            title: "Electrical Consultancy - Expert Advice You Can Trust",
+            category: "Electrical Consultancy",
+            meta: "8 min read \u2022 March 27, 2026",
+            image: "assets/images/inside.jpg",
+            imageAlt: "Electrical Consultancy",
+            introParagraphs: [
+              "Making the right electrical decisions at the right time can save your business lakhs of rupees and prevent costly mistakes down the line.",
+              "Ampleton's Electrical Consultancy services bring decades of hands-on engineering expertise directly to your project.",
+              "Our team of licensed electrical engineers works closely with architects, developers, and business owners to design safe, efficient and code-compliant electrical systems. Whether it is a new construction, an upgrade or a complex industrial setup we provide clear, actionable guidance every step of the way.",
+            ],
+            heading: "Our Electrical Consultancy covers",
+            points: [
+              "Load analysis and power system design.",
+              "Energy audits and efficiency recommendations.",
+              "Regulatory compliance and safety assessments.",
+              "Technical feasibility studies.",
+              "Detailed engineering drawings and documentation.",
+            ],
+            conclusion: [
+              "With expert consultancy from Ampleton, you get practical engineering guidance that improves performance while reducing risk and rework.",
+              "Our recommendations are always grounded in safety, compliance, and long-term operational value.",
+            ],
+          },
+          "solar-epc-harnessing-sun": {
+            title: "Solar EPC Services- Harnessing the Power of the Sun",
+            category: "Solar EPC",
+            meta: "9 min read \u2022 March 27, 2026",
+            image: "assets/images/rooftop-solar.jpg",
+            imageAlt: "Solar EPC",
+            introParagraphs: [
+              "The future of energy is solar and Ampleton is at the forefront of making it accessible and affordable for every business.",
+              "Our Solar EPC (Engineering, Procurement & Construction) services cover the complete lifecycle of your solar project, from initial design and system planning to procurement of high-quality components and full on-site installation.",
+              "Whether you are a factory owner looking to cut electricity costs, a commercial establishment aiming for energy independence, or an institution committed to going green Ampleton's solar EPC team delivers turnkey solutions tailored to your specific needs.",
+            ],
+            heading: "Why choose Ampleton for Solar EPC",
+            points: [
+              "End-to-end project execution under one roof.",
+              "Customized system design for maximum efficiency.",
+              "Quality-certified components and equipment.",
+              "On-time delivery with zero compromise on safety.",
+              "Post-installation support and maintenance.",
+            ],
+            conclusion: [
+              "Ampleton's Solar EPC model is built for businesses that need reliable output, financial savings, and long-term energy confidence.",
+              "With complete ownership from design to support, we help clients transition to solar smoothly and at scale.",
+            ],
+          },
+          "mep-backbone-great-building": {
+            title: "MEP Services- The Backbone of Every Great Building",
+            category: "MEP Services",
+            meta: "8 min read \u2022 March 27, 2026",
+            image: "assets/images/wind-power.jpg",
+            imageAlt: "MEP Infrastructure",
+            introParagraphs: [
+              "Behind every well-functioning building is a robust MEP (Mechanical, Electrical & Plumbing) system.",
+              "Ampleton's integrated MEP services ensure that all critical building systems work seamlessly together from the moment the foundation is laid to the day the doors open.",
+              "Our MEP engineers bring a holistic approach to building infrastructure, coordinating across all three disciplines to eliminate conflicts, reduce costs and optimize performance.",
+            ],
+            heading: "Ampleton's MEP Services include",
+            points: [
+              "Mechanical systems design and installation.",
+              "Electrical distribution and lighting systems.",
+              "Plumbing and drainage systems.",
+              "HVAC planning and execution.",
+              "BMS (Building Management System) integration.",
+            ],
+            conclusion: [
+              "When MEP systems are planned as one integrated framework, buildings become safer, more efficient, and easier to operate.",
+              "Ampleton delivers that integration with engineering precision, helping clients build high-performance infrastructure that lasts.",
+            ],
+          },
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const key = params.get("post");
+        const post = key ? posts[key] : null;
+        if (!post) return;
+
+        document.title = post.title + " - Ampleton";
+        const categoryEl = document.getElementById("blog-category-pill");
+        const titleEl = document.getElementById("blog-detail-title");
+        const metaEl = document.getElementById("blog-meta-text");
+        const imgEl = document.getElementById("blog-hero-image");
+        const introEl = document.getElementById("blog-intro-content");
+        const conclusionEl = document.getElementById("blog-conclusion-content");
+
+        if (categoryEl) categoryEl.textContent = post.category;
+        if (titleEl) titleEl.textContent = post.title;
+        if (metaEl) metaEl.textContent = post.meta;
+        if (imgEl) {
+          imgEl.src = post.image;
+          imgEl.alt = post.imageAlt;
+        }
+
+        if (introEl) {
+          const introHtml =
+            post.introParagraphs.map((p) => "<p>" + p + "</p>").join("") +
+            '<h2 class="article-heading">' +
+            post.heading +
+            "</h2>" +
+            '<ol class="styled-list"><li><strong>Key highlights:</strong><ul class="sub-list">' +
+            post.points.map((pt) => "<li>" + pt + "</li>").join("") +
+            "</ul></li></ol>";
+          introEl.innerHTML = introHtml;
+        }
+
+        if (conclusionEl) {
+          const conclusionHtml =
+            '<h2 class="article-heading">Final Thoughts</h2>' +
+            post.conclusion.map((p) => "<p>" + p + "</p>").join("");
+          conclusionEl.innerHTML = conclusionHtml;
+        }
+      })();
+    </script>
     <script src="js/script.js"></script>
   </body>
 </html>

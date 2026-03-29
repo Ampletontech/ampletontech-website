@@ -5,8 +5,6 @@
   "devCommand": null,
   "installCommand": null,
   "framework": null,
-  "cleanUrls": false,
-  "trailingSlash": false,
   "headers": [
     {
       "source": "/assets/:path*",

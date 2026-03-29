@@ -6,6 +6,7 @@
     <title>Projects - Ampleton</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/projects.css" />
+    <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
   </head>
   <body>
     <!-- Header Navigation -->
@@ -26,22 +27,30 @@
               <div class="nav-item dropdown">
                 <span class="nav-link dropdown-toggle">Services</span>
                 <div class="dropdown-menu">
-                  <a href="services/mep-services.html" class="dropdown-item"
-                    >MEP Services</a
-                  >
-                  <a href="services/solar-epc.html" class="dropdown-item"
-                    >Solar EPC</a
-                  >
-                  <a
-                    href="services/electrical-contractors.html"
-                    class="dropdown-item"
-                    >Electrical Contractors</a
-                  >
-                  <a
-                    href="services/electrical-consultants.html"
-                    class="dropdown-item"
-                    >Electrical Consultants</a
-                  >
+                  <div class="dropdown-item-wrapper">
+                    <a href="services/EV_Eco_System/index.html" class="dropdown-item">EV Eco System</a>
+                    <div class="sub-dropdown-menu">
+                      <a href="services/EV_Eco_System/ev-fast-charges.html" class="sub-dropdown-item">EV Fast Charges</a>
+                      <a href="services/EV_Eco_System/battery-solutions.html" class="sub-dropdown-item">Battery Solutions</a>
+                    </div>
+                  </div>
+                  <div class="dropdown-item-wrapper">
+                    <a href="services/Solar_Power_Solution/index.html" class="dropdown-item">Solar Power Solution</a>
+                    <div class="sub-dropdown-menu">
+                      <a href="services/Solar_Power_Solution/residential_solar.html" class="sub-dropdown-item">Residential Solar</a>
+                      <a href="services/Solar_Power_Solution/commercial_solar.html" class="sub-dropdown-item">Commercial Solar</a>
+                      <a href="services/Solar_Power_Solution/industrial_solar.html" class="sub-dropdown-item">Industrial Solar</a>
+                    </div>
+                  </div>
+                  <div class="dropdown-item-wrapper">
+                    <a href="services/Engineering_consultants.html/index.html" class="dropdown-item">Engineering Consultants</a>
+                    <div class="sub-dropdown-menu">
+                      <a href="services/electrical-consultants.html" class="sub-dropdown-item">Electrical Solutions</a>
+                      <a href="services/mep-services.html" class="sub-dropdown-item">MEP</a>
+                      <a href="services/Engineering_consultants.html/bim.html" class="sub-dropdown-item">BIM</a>
+                    </div>
+                  </div>
+                  <!-- <a href="services/Amplezone/index.html" class="dropdown-item">Amplezone</a> -->
                 </div>
               </div>
               <a href="#" class="nav-link active">Projects</a>
@@ -51,9 +60,8 @@
             </nav>
           </div>
 
-          <a href="contact-us.html" class="header-cta">
-            Contact Us
-            <span>↗</span>
+          <a href="assets/files/Ampleton-Brochure.pdf" class="header-cta" target="_blank">
+            Our Brochure
           </a>
           <button class="mobile-menu-toggle" aria-label="Toggle menu">
             <span></span>
@@ -78,14 +86,12 @@
       <div class="hero-content-wrapper">
         <div class="hero-content">
           <h1 class="hero-title">
-            Ampleton® – Powering Reliable & Efficient Energy Solutions
+            Ampleton® – Powering India with Solar &amp; EV Energy Solutions
           </h1>
           <p class="hero-description">
-            We deliver top-quality solar, electrical, and infrastructure
-            solutions tailored to every industry need. With innovative designs,
-            expert consultation, and turnkey execution, we help clients achieve
-            sustainable, cost-effective energy systems that stand the test of
-            time.
+            Specializing in Solar EPC and EV Charging Systems, we engineer
+            sustainable energy solutions tailored to every commercial,
+            industrial and institutional need.
           </p>
           <div class="hero-icons">
             <button class="hero-icon-btn" aria-label="Lightbulb">
@@ -257,7 +263,7 @@
           <div class="newsletter-content">
             <h3 class="newsletter-title">
               Stay Updated With Latest <br />
-              Energy Insights & Offers
+              Solar, EV &amp; Energy Insights &amp; Offers
             </h3>
           </div>
           <div class="newsletter-form">
@@ -299,18 +305,24 @@
             <nav class="footer-nav">
               <a href="index.html" class="footer-link">Home</a>
               <a href="about-us.html" class="footer-link">About Us</a>
-              <a href="" class="footer-link">Services</a>
-              <a href="#" class="footer-link">Projects</a>
+              <a href="index.html#services" class="footer-link">Services</a>
+              <a href="projects.html" class="footer-link">Projects</a>
               <a href="blogs.html" class="footer-link">Blogs</a>
               <a href="career.html" class="footer-link">Careers</a>
               <a href="contact-us.html" class="footer-link">Contact Us</a>
             </nav>
             <div class="footer-address">
               <p>
-                Ground Floor, Plot No.13, Survey 64/2, Software Units Layout,
-                Madhapur, HITEC City, Hyderabad – 500081, Telangana, India.
+                Head Office: 2nd floor, Ucon Plaza, Park Road, Kurnool, Andhra
+                Pradesh - 518001.
               </p>
-              <p class="footer-phone">+91 77999 95084, 1800 425 0222.</p>
+              <p>
+                Corporate Office: First Floor Boss Towers, Street No. 2,
+                Patrika Nagar, Madhapur, Hyderabad, Telangana – 500081
+              </p>
+              <p class="footer-phone">
+                Number: +91 77 9999 5084, 1800 425 0222
+              </p>
             </div>
           </div>
         </div>
@@ -322,7 +334,7 @@
             <a href="#" class="footer-legal-link">Privacy Policy</a>
             <a href="#" class="footer-legal-link">Terms of Service</a>
             <div class="footer-social">
-              <a href="#" class="social-icon" aria-label="Twitter">
+              <a href="https://x.com/AmpletonSolar" class="social-icon" aria-label="Twitter">
                 <!-- X Icon -->
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path
@@ -330,7 +342,11 @@
                   />
                 </svg>
               </a>
-              <a href="https://www.linkedin.com/in/ampleton-solar-159128253/" class="social-icon" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/in/ampleton-solar-159128253/"
+                class="social-icon"
+                aria-label="LinkedIn"
+              >
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path
                     d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"

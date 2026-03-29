@@ -310,9 +310,14 @@
 
 .leadership-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-xl);
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
   margin-bottom: var(--spacing-2xl);
+  align-items: center;
+}
+
+.leadership-image-col {
+  padding-right: var(--spacing-xl);
 }
 
 .leadership-card {
@@ -352,14 +357,35 @@
 .leader-name {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
+  color: #111827;
   margin-bottom: 4px;
 }
 
 .leader-role {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: #374151;
   font-weight: 400;
+}
+
+.leadership-bio {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.leadership-bio-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 14px;
+}
+
+.leadership-bio-text {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #374151;
+  margin-bottom: 0;
 }
 
 /* Carousel Controls - Matching Index Page */
@@ -509,7 +535,11 @@
   }
 
   .leadership-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+
+  .leadership-image-col {
+    padding-right: 0;
   }
 }
 
@@ -520,8 +550,16 @@
     gap: var(--spacing-lg);
   }
 
+  .leadership-image-col {
+    padding-right: 0;
+  }
+
   .leadership-card {
     height: 350px;
+  }
+
+  .leadership-bio {
+    padding: 0;
   }
 
   .leadership-header-row {
