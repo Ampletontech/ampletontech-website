@@ -2222,15 +2222,18 @@ img {
   }
 
   .dropdown-item-wrapper.active .sub-dropdown-menu {
-    max-height: 200px;
-    padding: 8px 0 8px 24px;
+    max-height: 300px;
+    padding: 4px 0 8px 0;
   }
 
   .sub-dropdown-item {
-    padding: 10px 24px 10px 64px;
+    display: block;
+    width: 100%;
+    padding: 10px 16px 10px 48px;
     font-size: 13px;
     color: #6b7280;
     border-radius: 0;
+    box-sizing: border-box;
   }
 
   .sub-dropdown-item:hover {

@@ -3,6 +3,46 @@
    Based on Figma Design
    ============================================ */
 
+/* ============================================
+   MEP DISCIPLINES GRID
+   ============================================ */
+
+.mep-disciplines-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #e5e7eb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1.5rem 0 2.5rem;
+}
+
+.mep-discipline-card {
+    background: #faf8ff;
+    padding: 1.5rem;
+}
+
+.mep-discipline-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #7628a3;
+    margin: 0 0 0.75rem;
+}
+
+.mep-discipline-desc {
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.65;
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .mep-disciplines-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Note: Base styles, Header, and Footer are inherited from css/styles.css */
 
 /* ============================================
@@ -85,11 +125,63 @@
     pointer-events: none;
 } */
 
+/* ============================================
+   VIDEO HERO BACKGROUND
+   ============================================ */
+.hero-bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Dark overlay for video heroes — scoped to .video-bg modifier */
+.hero-bg.video-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 30, 0.55);
+    z-index: 1;
+}
+
+/* ============================================
+   STANDALONE FEATURE IMAGE (below hero)
+   ============================================ */
+.page-feature-image {
+    display: flex;
+    justify-content: center;
+    padding: 48px 20px 0;
+}
+
+.page-feature-img {
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+    aspect-ratio: 16 / 10;
+}
+
+@media (max-width: 768px) {
+    .page-feature-image {
+        padding: 32px 16px 0;
+    }
+    .page-feature-img {
+        max-width: 100%;
+    }
+}
+
 /* Content Wrapper - Top aligned */
 .mep-hero .hero-content-wrapper {
     width: 100%;
     left: 0;
     right: 0;
+    position: relative;
+    z-index: 2;
     top: 0;
     align-items: center;
     justify-content: flex-start;
@@ -460,6 +552,21 @@
     }
 }
 
+/* Tablet portrait: switch to landscape hero too */
+@media screen and (max-width: 768px) and (orientation: portrait) {
+    .mep-hero.hero-section {
+        aspect-ratio: 16 / 9;
+        height: auto;
+        min-height: unset;
+        max-height: unset;
+    }
+
+    .service-hero-wrapper {
+        height: auto;
+        min-height: unset;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .mep-hero .hero-title {
         font-size: 36px;
@@ -469,25 +576,28 @@
         /* padding: 100px 20px 0; */
     }
 
+    /* Landscape aspect ratio on mobile — video/image heroes always look wide */
     .mep-hero.hero-section {
-        height: 70vh;
-        min-height: 60vh;
-        max-height: 70vh;
+        height: auto;
+        min-height: 180px; /* safety floor so content is never clipped */
+        max-height: unset;
+        aspect-ratio: 16 / 9;
     }
 
     .service-hero-wrapper {
         height: auto;
-        min-height: 80vh;
+        min-height: unset;
     }
 
+    /* Hanging image separated from hero — no overlap, sits cleanly below */
     .hero-hanging-image {
         position: relative;
         top: auto;
         left: auto;
         transform: none;
-        width: 85%;
+        width: 88%;
         max-width: 100%;
-        margin: -80px auto 40px;
+        margin: 24px auto 0;
     }
 
     .main-content {
@@ -527,15 +637,17 @@
         font-size: 28px;
     }
 
+    /* Keep landscape aspect ratio at smallest breakpoint too */
     .mep-hero.hero-section {
-        height: 60vh;
-        min-height: 60vh;
-        max-height: 60vh;
+        height: auto;
+        min-height: unset;
+        max-height: unset;
+        aspect-ratio: 16 / 9;
     }
 
     .hero-hanging-image {
-        width: 90%;
-        margin: -60px auto 30px;
+        width: 92%;
+        margin: 20px auto 0;
     }
 
     .section-heading {
