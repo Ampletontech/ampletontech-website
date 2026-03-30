@@ -137,7 +137,7 @@
     left: 0;
 }
 
-/* Dark overlay for video heroes — scoped to .video-bg modifier */
+/* Dark overlay for video heroes  - scoped to .video-bg modifier */
 .hero-bg.video-bg::after {
     content: '';
     position: absolute;
@@ -263,6 +263,17 @@
 .hanging-img-ev-hero {
     object-fit: cover;
     aspect-ratio: 16 / 10;
+}
+
+/* Battery Solutions page  - slightly smaller hero and inline images */
+.hero-hanging-image.battery-solutions-hero-image {
+    width: 52%;
+    max-width: 720px;
+}
+
+.content-image-wrapper.battery-solutions-content-image {
+    max-width: 615px;
+    max-height: 425px;
 }
 
 /* ============================================
@@ -547,6 +558,10 @@
         top: 50%;
     }
 
+    .hero-hanging-image.battery-solutions-hero-image {
+        width: 60%;
+    }
+
     .main-content {
         margin-top: 20vh;
     }
@@ -576,7 +591,7 @@
         /* padding: 100px 20px 0; */
     }
 
-    /* Landscape aspect ratio on mobile — video/image heroes always look wide */
+    /* Landscape aspect ratio on mobile  - video/image heroes always look wide */
     .mep-hero.hero-section {
         height: auto;
         min-height: 180px; /* safety floor so content is never clipped */
@@ -589,7 +604,7 @@
         min-height: unset;
     }
 
-    /* Hanging image separated from hero — no overlap, sits cleanly below */
+    /* Hanging image separated from hero  - no overlap, sits cleanly below */
     .hero-hanging-image {
         position: relative;
         top: auto;
@@ -598,6 +613,10 @@
         width: 88%;
         max-width: 100%;
         margin: 24px auto 0;
+    }
+
+    .hero-hanging-image.battery-solutions-hero-image {
+        width: 84%;
     }
 
     .main-content {
@@ -650,6 +669,10 @@
         margin: 20px auto 0;
     }
 
+    .hero-hanging-image.battery-solutions-hero-image {
+        width: 88%;
+    }
+
     .section-heading {
         font-size: 18px;
     }
@@ -663,7 +686,7 @@
    EV SECTION STRUCTURED CONTENT STYLES
    ============================================ */
 
-/* Dark header block — "01. EV Eco System" */
+/* Dark header block  - primary section title (e.g. EV Eco System) */
 .ev-section-header {
     background: #1c1e3a;
     border-left: 5px solid #7628a3;
@@ -687,7 +710,7 @@
     font-weight: 400;
 }
 
-/* Light sub-header block — "1.1 EV Fast Chargers" */
+/* Light sub-header block  - subsection title (e.g. EV Fast Chargers) */
 .ev-subsection-header {
     background: rgba(118, 40, 163, 0.06);
     border-left: 4px solid #7628a3;
@@ -711,7 +734,7 @@
     font-style: italic;
 }
 
-/* Section label — "OVERVIEW", "WHAT MAKES…", "OUR DEPLOYMENT PROCESS" */
+/* Section label  - "OVERVIEW", "WHAT MAKES…", "OUR DEPLOYMENT PROCESS" */
 .ev-section-label {
     font-size: 0.72rem;
     font-weight: 700;
@@ -747,7 +770,7 @@
     }
 }
 
-/* About EV Charging — DC lineup */
+/* About EV Charging  - DC lineup */
 .charger-lineup-heading {
     font-size: 1.5rem;
     font-weight: 600;
