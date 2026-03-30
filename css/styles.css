@@ -719,7 +719,7 @@ img {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-xl);
   margin-top: var(--spacing-3xl);
 }
@@ -1977,7 +1977,6 @@ img {
     border-radius: 16px;
   }
 
-  .services-grid,
   .why-choose-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1990,6 +1989,13 @@ img {
   .portfolio-cards,
   .blogs-cards,
   .testimonials-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Services: 2 columns on smaller tablets; 4 columns above this width */
+@media screen and (max-width: 992px) {
+  .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -3288,5 +3294,53 @@ img {
 @keyframes drawCheck {
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+/* Home: floating WhatsApp (index.html only) */
+.whatsapp-float {
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.55);
+  color: #fff;
+}
+
+.whatsapp-float:focus-visible {
+  outline: 2px solid #7628a3;
+  outline-offset: 3px;
+}
+
+.whatsapp-float-icon {
+  width: 26px;
+  height: 26px;
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    right: 14px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .whatsapp-float-icon {
+    width: 24px;
+    height: 24px;
   }
 }
