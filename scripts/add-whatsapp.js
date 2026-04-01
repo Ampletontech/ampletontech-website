@@ -1,22 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      http-equiv="refresh"
-      content="0; url=index.html#ampleton-dc-fast-charger-lineup"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Redirecting…</title>
-    <link rel="canonical" href="/services/EV_Eco_System/#ampleton-dc-fast-charger-lineup" />
-  </head>
-  <body>
-    <p>
-      <a href="/services/EV_Eco_System/#ampleton-dc-fast-charger-lineup"
-        >Continue to About EV Charging: DC Fast Charger Lineup</a
-      >
-    </p>
-  
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = path.join(__dirname, '..');
+
+const WHATSAPP_SNIPPET = `
     <a
       href="https://wa.me/917799995084"
       class="whatsapp-float"
@@ -36,6 +23,34 @@
         />
       </svg>
     </a>
+`;
 
-  </body>
-</html>
+function getAllHtml(dir) {
+  const out = [];
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory() && !['node_modules', '.git', 'scripts'].includes(entry.name)) {
+      out.push(...getAllHtml(full));
+    } else if (entry.isFile() && entry.name.endsWith('.html')) {
+      out.push(full);
+    }
+  }
+  return out;
+}
+
+const files = getAllHtml(ROOT);
+
+for (const file of files) {
+  if (path.basename(file) === 'index.html') continue; // already has it
+
+  let html = fs.readFileSync(file, 'utf8');
+  if (html.includes('whatsapp-float')) continue; // already added
+
+  const idx = html.lastIndexOf('</body>');
+  if (idx === -1) continue;
+
+  const updated = html.slice(0, idx) + WHATSAPP_SNIPPET + '\n  </body>' + html.slice(idx + '</body>'.length);
+  fs.writeFileSync(file, updated, 'utf8');
+  console.log('Added WhatsApp to', path.relative(ROOT, file));
+}
+

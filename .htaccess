@@ -1,0 +1,16 @@
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Extensionless URLs: /about-us -> /about-us.html (internal)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L,QSA]
+
+  # Optional: 301 redirect old .html URLs to clean URLs (uncomment on Apache if desired)
+  # RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP/
+  # RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+</IfModule>

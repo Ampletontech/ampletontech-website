@@ -1,0 +1,8 @@
+{
+  "name": "ampletontech-website",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "clean-urls": "node scripts/apply-clean-urls.js"
+  }
+}

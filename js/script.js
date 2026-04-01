@@ -304,6 +304,36 @@ document.addEventListener("DOMContentLoaded", function () {
   // });
 
   // ============================================
+  // HOME HERO — CROSSFADE BACKGROUND IMAGES
+  // ============================================
+  function initHeroBgCarousel() {
+    const root = document.querySelector(".hero-bg-slides");
+    if (!root) return;
+
+    const slides = root.querySelectorAll(".hero-bg-slide");
+    if (slides.length < 2) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduceMotion) {
+      slides.forEach((slide, index) => {
+        slide.classList.toggle("is-active", index === 0);
+      });
+      return;
+    }
+
+    const INTERVAL_MS = 4500;
+    let index = 0;
+
+    window.setInterval(function () {
+      slides[index].classList.remove("is-active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("is-active");
+    }, INTERVAL_MS);
+  }
+
+  // ============================================
   // PARALLAX SCROLLING EFFECT (Subtle & Performance Optimized)
   // ============================================
   function initParallax() {
@@ -331,6 +361,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Apply parallax to regular hero images
             heroImages.forEach((img) => {
+              /* Home hero: only the visible slide moves (stacked crossfade) */
+              if (
+                img.classList.contains("hero-bg-slide") &&
+                !img.classList.contains("is-active")
+              ) {
+                img.style.transform = "translate3d(0, 0, 0)";
+                return;
+              }
+
               // Skip about-hero-img to prevent gray background glitch
               if (img.classList.contains("about-hero-img")) {
                 img.style.transform = "translate3d(0, 0, 0)";
@@ -850,6 +889,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // ============================================
   // INITIALIZE ALL ANIMATIONS
   // ============================================
+  initHeroBgCarousel();
   initParallax();
   initStaggeredAnimations();
   initHeaderScroll();

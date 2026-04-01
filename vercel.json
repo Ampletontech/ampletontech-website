@@ -1,38 +1,112 @@
 {
-  "version": 2,
-  "buildCommand": null,
-  "outputDirectory": ".",
-  "devCommand": null,
-  "installCommand": null,
-  "framework": null,
-  "headers": [
+  "rewrites": [
     {
-      "source": "/assets/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "source": "/about-us",
+      "destination": "/about-us.html"
     },
     {
-      "source": "/css/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "source": "/blog-details",
+      "destination": "/blog-details.html"
     },
     {
-      "source": "/js/:path*",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
+      "source": "/blogs",
+      "destination": "/blogs.html"
+    },
+    {
+      "source": "/career",
+      "destination": "/career.html"
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/contact-us.html"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/projects",
+      "destination": "/projects.html"
+    },
+    {
+      "source": "/services/Amplezone",
+      "destination": "/services/Amplezone/index.html"
+    },
+    {
+      "source": "/services/Amplezone/",
+      "destination": "/services/Amplezone/index.html"
+    },
+    {
+      "source": "/services/electrical-consultants",
+      "destination": "/services/electrical-consultants.html"
+    },
+    {
+      "source": "/services/electrical-contractors",
+      "destination": "/services/electrical-contractors.html"
+    },
+    {
+      "source": "/services/Engineering_consultants.html/bim",
+      "destination": "/services/Engineering_consultants.html/bim.html"
+    },
+    {
+      "source": "/services/Engineering_consultants.html",
+      "destination": "/services/Engineering_consultants.html/index.html"
+    },
+    {
+      "source": "/services/Engineering_consultants.html/",
+      "destination": "/services/Engineering_consultants.html/index.html"
+    },
+    {
+      "source": "/services/EV_Eco_System/battery-solutions",
+      "destination": "/services/EV_Eco_System/battery-solutions.html"
+    },
+    {
+      "source": "/services/EV_Eco_System/ev-charging-products",
+      "destination": "/services/EV_Eco_System/ev-charging-products.html"
+    },
+    {
+      "source": "/services/EV_Eco_System/ev-fast-charges",
+      "destination": "/services/EV_Eco_System/ev-fast-charges.html"
+    },
+    {
+      "source": "/services/EV_Eco_System/ev-fast-charging-solutions",
+      "destination": "/services/EV_Eco_System/ev-fast-charging-solutions.html"
+    },
+    {
+      "source": "/services/EV_Eco_System",
+      "destination": "/services/EV_Eco_System/index.html"
+    },
+    {
+      "source": "/services/EV_Eco_System/",
+      "destination": "/services/EV_Eco_System/index.html"
+    },
+    {
+      "source": "/services/mep-services",
+      "destination": "/services/mep-services.html"
+    },
+    {
+      "source": "/services/solar-epc",
+      "destination": "/services/solar-epc.html"
+    },
+    {
+      "source": "/services/Solar_Power_Solution/commercial_solar",
+      "destination": "/services/Solar_Power_Solution/commercial_solar.html"
+    },
+    {
+      "source": "/services/Solar_Power_Solution",
+      "destination": "/services/Solar_Power_Solution/index.html"
+    },
+    {
+      "source": "/services/Solar_Power_Solution/",
+      "destination": "/services/Solar_Power_Solution/index.html"
+    },
+    {
+      "source": "/services/Solar_Power_Solution/industrial_solar",
+      "destination": "/services/Solar_Power_Solution/industrial_solar.html"
+    },
+    {
+      "source": "/services/Solar_Power_Solution/residential_solar",
+      "destination": "/services/Solar_Power_Solution/residential_solar.html"
     }
   ]
 }
-
