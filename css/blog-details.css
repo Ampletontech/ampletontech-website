@@ -214,7 +214,7 @@
   position: relative;
   z-index: 5;
   margin-top: 10vh;
-  padding-top: 160px;
+  padding-top: 280px;
   /* Spacing to clear hanging image in flow */
   padding-bottom: 60px;
 }
@@ -460,6 +460,7 @@
 
   .blog-detail-main {
     margin-top: 20vh;
+    padding-top: 240px;
   }
 }
 
