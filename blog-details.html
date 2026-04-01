@@ -370,95 +370,7 @@
         </div>
         <div class="related-separator"></div>
         <div class="blogs-carousel">
-          <div class="blogs-cards">
-            <!-- Related Card 1 -->
-            <article class="blog-card">
-              <img loading="lazy"
-                src="/assets/images/harnessing.webp"
-                alt="Harnessing Solar"
-                class="blog-image"
-              />
-              <div class="blog-card-content">
-                <h3 class="blog-title">
-                  Harnessing the Power of the Sun: Exploring the World of Solar
-                  Energy
-                </h3>
-                <p class="blog-snippet">
-                  Solar energy is revolutionizing the way we power our world. In
-                  this blog post, we'll delve into...
-                </p>
-                <div class="blog-meta">
-                  <div class="blog-author">
-                    <img loading="lazy"
-                      src="/assets/images/ramesh_kumar.webp"
-                      alt="Ramesh Kumar"
-                      class="blog-author-avatar"
-                    />
-                    <span class="blog-author-name">Ramesh Kumar</span>
-                  </div>
-                  <span class="blog-read-time">• 9 min read</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Related Card 2 -->
-            <article class="blog-card">
-              <img loading="lazy"
-                src="/assets/images/wind-power.webp"
-                alt="Wind Power"
-                class="blog-image"
-              />
-              <div class="blog-card-content">
-                <h3 class="blog-title">
-                  Wind Power: A Breath of Fresh Air for Clean Energy Enthusiasts
-                </h3>
-                <p class="blog-snippet">
-                  Wind energy is revolutionizing the way we power our world. In
-                  this blog post, we'll delve into...
-                </p>
-                <div class="blog-meta">
-                  <div class="blog-author">
-                    <img loading="lazy"
-                      src="/assets/images/vijaya_lakshmi.webp"
-                      alt="Vijaya Lakshmi"
-                      class="blog-author-avatar"
-                    />
-                    <span class="blog-author-name">Vijaya Lakshmi</span>
-                  </div>
-                  <span class="blog-read-time">• 12 min read</span>
-                </div>
-              </div>
-            </article>
-
-            <!-- Related Card 3 -->
-            <article class="blog-card">
-              <img loading="lazy"
-                src="/assets/images/from_trash.webp"
-                alt="Biomass Energy"
-                class="blog-image"
-              />
-              <div class="blog-card-content">
-                <h3 class="blog-title">
-                  From Trash to Treasure: The Promising World of Biomass Energy
-                </h3>
-                <p class="blog-snippet">
-                  Solar energy is revolutionizing the way we power our world. In
-                  this blog post, we'll delve into...
-                </p>
-                <div class="blog-meta">
-                  <div class="blog-author">
-                    <img loading="lazy"
-                      src="/assets/images/jenny.webp"
-                      alt="Jenny Wilson"
-                      class="blog-author-avatar"
-                    />
-                    <span class="blog-author-name">Jenny Wilson</span>
-                  </div>
-                  <span class="blog-read-time">• 12 min read</span>
-                </div>
-              </div>
-            </article>
-          </div>
+          <div class="blogs-cards" id="related-posts-list"></div>
           <div class="blogs-carousel-controls">
             <button
               class="blogs-carousel-btn blogs-carousel-prev"
@@ -567,7 +479,7 @@
             <p>© 2025 Ampleton. All rights reserved.</p>
           </div>
           <div class="footer-legal-social">
-            <a href="#" class="footer-legal-link">Privacy Policy</a>
+            <a href="/privacy-policy" class="footer-legal-link">Privacy Policy</a>
             <a href="#" class="footer-legal-link">Terms of Service</a>
             <div class="footer-social">
               <a
@@ -622,6 +534,81 @@
 
     <script>
       (function () {
+        const relatedPosts = [
+          {
+            key: "solar-energy-world",
+            href: "/blog-details",
+            title: "Harnessing the Power of the Sun: Exploring the World of Solar Energy",
+            snippet:
+              "Solar energy is revolutionizing the way we power our world. In this blog post, we'll delve into the incredible potential of solar technology, its environmental benefits...",
+            image: "/assets/images/harnessing.webp",
+            imageAlt: "Harnessing the Power of the Sun: Exploring the World of Solar Energy",
+            author: "Ramesh Kumar",
+            authorImage: "/assets/images/ramesh_kumar.webp",
+            meta: "9 min read",
+          },
+          {
+            key: "mep-design-to-maintenance",
+            href: "/blog-details?post=mep-design-to-maintenance",
+            title: "Ampleton's End-to-End MEP Services: From Design to Maintenance",
+            snippet:
+              "Ampleton provides complete MEP services from planning and design to installation and long-term maintenance with dependable project delivery...",
+            image: "/assets/images/building.webp",
+            imageAlt: "Ampleton's End-to-End MEP Services: From Design to Maintenance",
+            author: "Ramesh Kumar",
+            authorImage: "/assets/images/ramesh_kumar.webp",
+            meta: "8 min read",
+          },
+          {
+            key: "electrical-contractors-reliable-execution",
+            href: "/blog-details?post=electrical-contractors-reliable-execution",
+            title: "Electrical Contractors- Reliable Execution on Every Project",
+            snippet:
+              "Great plans need great execution. Ampleton handles installation, testing, and commissioning with strong safety, quality, and schedule control...",
+            image: "/assets/images/power-distribution.webp",
+            imageAlt: "Electrical Contractors- Reliable Execution on Every Project",
+            author: "Vijaya Lakshmi",
+            authorImage: "/assets/images/vijaya_lakshmi.webp",
+            meta: "9 min read",
+          },
+          {
+            key: "electrical-consultancy-expert-advice",
+            href: "/blog-details?post=electrical-consultancy-expert-advice",
+            title: "Electrical Consultancy - Expert Advice You Can Trust",
+            snippet:
+              "Smart electrical decisions can save major costs. Our consultancy helps with design, compliance, audits, and actionable technical planning...",
+            image: "/assets/images/inside.webp",
+            imageAlt: "Electrical Consultancy - Expert Advice You Can Trust",
+            author: "Geetha N",
+            authorImage: "/assets/images/geetha.webp",
+            meta: "8 min read",
+          },
+          {
+            key: "solar-epc-harnessing-sun",
+            href: "/blog-details?post=solar-epc-harnessing-sun",
+            title: "Solar EPC Services- Harnessing the Power of the Sun",
+            snippet:
+              "From design and procurement to installation, Ampleton delivers end-to-end solar EPC solutions tailored for business growth and sustainability...",
+            image: "/assets/images/rooftop-solar.webp",
+            imageAlt: "Solar EPC Services- Harnessing the Power of the Sun",
+            author: "Vasanthi M",
+            authorImage: "/assets/images/vasanthi.webp",
+            meta: "9 min read",
+          },
+          {
+            key: "mep-backbone-great-building",
+            href: "/blog-details?post=mep-backbone-great-building",
+            title: "MEP Services- The Backbone of Every Great Building",
+            snippet:
+              "Integrated mechanical, electrical, and plumbing systems are the foundation of reliable buildings. Discover Ampleton's holistic MEP approach...",
+            image: "/assets/images/wind-power.webp",
+            imageAlt: "MEP Services- The Backbone of Every Great Building",
+            author: "Jenny Wilson",
+            authorImage: "/assets/images/jenny.webp",
+            meta: "8 min read",
+          },
+        ];
+
         const posts = {
           "mep-design-to-maintenance": {
             title:
@@ -748,15 +735,58 @@
         const params = new URLSearchParams(window.location.search);
         const key = params.get("post");
         const post = key ? posts[key] : null;
-        if (!post) return;
+        const currentKey = post ? key : "solar-energy-world";
 
-        document.title = post.title + " - Ampleton";
         const categoryEl = document.getElementById("blog-category-pill");
         const titleEl = document.getElementById("blog-detail-title");
         const metaEl = document.getElementById("blog-meta-text");
         const imgEl = document.getElementById("blog-hero-image");
         const introEl = document.getElementById("blog-intro-content");
         const conclusionEl = document.getElementById("blog-conclusion-content");
+        const relatedEl = document.getElementById("related-posts-list");
+
+        if (relatedEl) {
+          const cards = relatedPosts
+            .filter((item) => item.key !== currentKey)
+            .slice(0, 3)
+            .map(
+              (item) => `
+                <article class="blog-card">
+                  <a href="${item.href}" class="blog-card-link">
+                    <img
+                      loading="lazy"
+                      src="${item.image}"
+                      alt="${item.imageAlt}"
+                      class="blog-image"
+                    />
+                    <div class="blog-card-content">
+                      <h3 class="blog-title">${item.title}</h3>
+                      <p class="blog-snippet">${item.snippet}</p>
+                      <div class="blog-meta">
+                        <div class="blog-author">
+                          <img
+                            loading="lazy"
+                            src="${item.authorImage}"
+                            alt="${item.author}"
+                            class="blog-author-avatar"
+                          />
+                          <span class="blog-author-name">${item.author}</span>
+                        </div>
+                        <span class="blog-read-time">• ${item.meta}</span>
+                      </div>
+                    </div>
+                  </a>
+                </article>
+              `
+            )
+            .join("");
+
+          relatedEl.innerHTML = cards;
+        }
+
+        if (!post) return;
+
+        document.title = post.title + " - Ampleton";
 
         if (categoryEl) categoryEl.textContent = post.category;
         if (titleEl) titleEl.textContent = post.title;
@@ -810,3 +840,4 @@
 
   </body>
 </html>
+
