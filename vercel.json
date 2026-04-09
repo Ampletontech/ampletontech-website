@@ -29,6 +29,10 @@
       "destination": "/projects.html"
     },
     {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
       "source": "/services/Amplezone",
       "destination": "/services/Amplezone/index.html"
     },
